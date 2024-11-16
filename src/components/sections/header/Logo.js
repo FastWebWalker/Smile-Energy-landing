@@ -10,11 +10,15 @@ export default function Logo() {
         <img src={logo} alt="Logo" className="h-9 w-auto" />
         <div className="flex flex-col justify-center items-start">
           <div className="relative mb-[5px] h-4">
-            <img src={part1logo} />
-            <img src={line} className="absolute top-[17.18px]" />
+            <img src={part1logo} alt="part-logo" />
+            <img
+              src={line}
+              className="absolute top-[17.18px]"
+              alt="part-logo"
+            />
           </div>
 
-          <img src={part2logo} className="h-[9.27px]" />
+          <img src={part2logo} className="h-[9.27px]" alt="part-logo" />
         </div>
       </a>
     </div>

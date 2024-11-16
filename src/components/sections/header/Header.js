@@ -5,6 +5,7 @@ import ContentContainer from "../../UI/ContentContainer";
 import Logo from "./Logo";
 import SwitchButton from "../../UI/SwitchButton";
 import Button from "../../UI/Button";
+import LShape from "../../UI/LShape";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +35,7 @@ const Header = () => {
 
           <div className="flex gap-3 justify-center items-center">
             <SwitchButton />
+            
 
             <Button className="uppercase">get in touch</Button>
           </div>

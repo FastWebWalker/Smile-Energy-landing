@@ -1,17 +1,18 @@
-/* src/styles.css */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url(https://fonts.googleapis.com/css?family=Inter:300,regular&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Inter:200,300,regular&display=swap);
 body {
   margin: 0;
   font-family: "Inter";
   font-weight: 300;
   font-size: 16px;
 }
+/* src/styles.css */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
