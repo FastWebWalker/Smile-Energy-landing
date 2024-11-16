@@ -1,23 +1,17 @@
 import React from "react";
-import FadeInUp from "../animation/FadeInUp";
-import ParallaxImage from "../animation/ParallaxImage";
-import parallaxImage from "../../images/1350069.jpeg";
+import BackgroundImageWrapper from "../UI/BackgroundImageWrapper";
+import backgroundHero from "../../images/sections/hero/74a195c465f1a92003b3cd88a0da79e2.png";
+
 const HeroSection = () => {
   return (
-    <section className="hero-section">
-      <div className="hero-content">
-        <FadeInUp>
-          <h1>Welcome to Our Landing Page</h1>
-        </FadeInUp>
-        <FadeInUp delay={0.5}>
-          <p>Discover the power of our product or service.</p>
-        </FadeInUp>
-        <FadeInUp delay={1}>
-          <button className="cta-button">Get Started</button>
-        </FadeInUp>
-      </div>
-
-      <ParallaxImage src={parallaxImage} alt="Hero Image" />
+    <section>
+      <BackgroundImageWrapper
+        imageUrl={backgroundHero}
+        className="min-h-screen grayscale relative z-[-1000]"
+        style={{ backgroundPosition: "center 61%" }}>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div>content</div>
+      </BackgroundImageWrapper>
     </section>
   );
 };
