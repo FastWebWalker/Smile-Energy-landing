@@ -16,21 +16,21 @@ const HeroSection = () => {
       {/* Background layer */}
       <BackgroundImageWrapper
         imageUrl={backgroundHero}
-        className="min-h-screen min-w-screen grayscale absolute inset-0 z-0"
+        className="h-screen min-w-screen grayscale absolute inset-0 z-0"
         style={{ backgroundPosition: "center 61%" }}>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       </BackgroundImageWrapper>
 
       {/* Content layer */}
-      <div className="relative z-10 pt-[240px]">
+      <div className="relative z-10 pt-[240px] pb-[90px]">
         <ContentContainer>
           <div className="flex flex-col">
             <MainTitleBlock />
-            <div className="flex gap-3 mb-[78px]">
-              <Button outlined className="bg-redCustom">
+            <div className="flex gap-3 mb-[78px] mt-[32px]">
+              <Button variant="red-white" className="bg-redCustom">
                 Our Store
               </Button>
-              <Button variant="red">Order A Call</Button>
+              <Button variant="white-white">Order A Call</Button>
             </div>
             <div className="flex justify-start items-center gap-3">
               <img src={company1} />

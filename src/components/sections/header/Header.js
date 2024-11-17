@@ -5,7 +5,6 @@ import ContentContainer from "../../UI/ContentContainer";
 import Logo from "./Logo";
 import SwitchButton from "../../UI/SwitchButton";
 import Button from "../../UI/Button";
-import LShape from "../../UI/LShape";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
