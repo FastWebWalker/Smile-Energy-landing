@@ -1,5 +1,7 @@
 import ChooseSection from "./components/sections/choose/ChooseSection";
+import Footer from "./components/sections/footer/Footer";
 import FounderSection from "./components/sections/founder/FounderSection";
+import GallerySection from "./components/sections/gallery/GallerySection";
 import Header from "./components/sections/header/Header";
 import HeroSection from "./components/sections/hero/HeroSection";
 import NumbersSection from "./components/sections/numbers/NumbersSection";
@@ -20,6 +22,8 @@ function App() {
       <StoreSection />
       <PopularSection />
       <FounderSection />
+      <GallerySection />
+      <Footer />
     </div>
   );
 }

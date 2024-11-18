@@ -4,7 +4,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import ContentContainer from "../../UI/ContentContainer";
 import Title from "../../UI/Title";
 
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
