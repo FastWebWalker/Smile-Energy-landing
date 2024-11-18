@@ -9,7 +9,7 @@ export default function TrustedSection() {
       <ContentContainer>
         <div className="flex justify-between items-center mb-[46px]">
           <Title className="text-white">Trusted partners</Title>
-          <Description className="max-w-[557px] text-right">
+          <Description className="text-white max-w-[557px] text-right">
             Thanks to its experience, skills and high qualifications, we will
             become a reliable partner for you, and will offer exactly the
             solutions you and your patients need.

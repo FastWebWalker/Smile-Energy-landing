@@ -47,7 +47,7 @@ const Button = ({
   outlined = false,
 }) => {
   const baseClasses =
-    "flex justify-center items-center gap-[6px] rounded-[30px] px-[20px] py-[9px] font-normal cursor-pointer transition-all duration-300";
+    "inline-flex justify-center items-center gap-[6px] rounded-[30px] px-[20px] py-[9px] font-normal cursor-pointer transition-all duration-300";
 
   const getVariantClasses = () => {
     if (outlined) {
