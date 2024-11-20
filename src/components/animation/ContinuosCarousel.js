@@ -12,8 +12,14 @@ import partner4 from "../../images/sections/trusted/partner4.svg";
 import partner5 from "../../images/sections/trusted/partner5.svg";
 import partner6 from "../../images/sections/trusted/partner6.svg";
 import partner7 from "../../images/sections/trusted/partner7.svg";
+import { useMediaQuery } from "@mui/material";
 
 const SwiperCarousel = () => {
+  const isDesktop = useMediaQuery("(min-width:1024px)");
+  const isTablet = useMediaQuery("(min-width:625px) and (max-width:1023px)");
+  const isMobile = useMediaQuery("(max-width:767px)");
+
+  const slides = isDesktop ? 7 : isTablet ? 5 : 3;
   const images = [
     partner1,
     partner2,
@@ -31,7 +37,7 @@ const SwiperCarousel = () => {
     <Swiper
       modules={[Autoplay]}
       spaceBetween={30}
-      slidesPerView={7}
+      slidesPerView={slides}
       loop={true}
       speed={3000}
       autoplay={{
@@ -47,7 +53,7 @@ const SwiperCarousel = () => {
             <img
               src={image}
               alt={`Partner ${index + 1}`}
-              className="w-full h-auto opacity-100"
+              className="w-full lg:h-[184px] opacity-100"
             />
           </div>
         </SwiperSlide>

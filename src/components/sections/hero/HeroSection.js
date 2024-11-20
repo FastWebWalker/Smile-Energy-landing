@@ -52,7 +52,7 @@ const HeroSection = () => {
               </Button>
               <Button variant="white-white">Order A Call</Button>
             </div>
-            <div className="flex lg:justify-start lg:h-[42px] md:h-[50px] h-[42px] justify-center items-center gap-3 flex-wrap [@media(max-width:767px)]:mb-[48px]">
+            <div className="flex lg:justify-start lg:h-[42px] md:h-[50px] h-[42px]  items-center gap-3 flex-wrap [@media(max-width:767px)]:mb-[48px]">
               <img src={company1} className="h-full opacity-70" />
               <img src={company2} className="h-full opacity-70" />
               <img src={company3} className="h-full opacity-70" />

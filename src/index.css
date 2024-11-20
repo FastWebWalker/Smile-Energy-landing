@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}
+
 @import url(https://fonts.googleapis.com/css?family=Inter:200,300,regular&display=swap);
 body {
   margin: 0;
