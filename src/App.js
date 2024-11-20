@@ -17,7 +17,7 @@ function App() {
       <Header />
       <HeroSection />
       <NumbersSection />
-      <ChooseSection />
+      {/* <ChooseSection /> */}
       {/* <TrustedSection />
       <ReviewsSection />
       <StoreSection />
