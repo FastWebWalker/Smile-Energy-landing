@@ -6,8 +6,18 @@ import instagram from "../../../images/sections/footer/instagram.svg";
 import facebook from "../../../images/sections/footer/facebook.svg";
 import linkedIn from "../../../images/sections/footer/linkedIn.svg";
 import telegram from "../../../images/sections/footer/telegram.svg";
+import FormModal from "../hero/FormModal";
+import { useState } from "react";
 
 export default function Footer() {
+  const [formIsOpen, setFormIsOpen] = useState(false);
+  const handleSubmit = () => {
+    setFormIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setFormIsOpen(false);
+  };
   return (
     <footer className="pt-[56px] pb-[20px] bg-[#191919]">
       <ContentContainer>
@@ -26,7 +36,9 @@ export default function Footer() {
                 Do you have any questions? Contact us!
               </Description>
               <div className="flex-grow-0">
-                <Button variant="white-white">Order A Call</Button>
+                <button onClick={handleSubmit}>
+                  <Button variant="white-white">Order A Call</Button>
+                </button>
               </div>
             </div>
           </div>
@@ -151,6 +163,9 @@ export default function Footer() {
           <p>&copy; Smile Energy Group 2024. All Rights Reserved.</p>
         </div>
       </ContentContainer>
+      {formIsOpen && (
+        <FormModal onSubmit={handleSubmit} onClose={handleClose} />
+      )}
     </footer>
   );
 }

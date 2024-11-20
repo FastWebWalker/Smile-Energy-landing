@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContentContainer from "../../UI/ContentContainer";
 import Description from "../../UI/Description";
 import Title from "../../UI/Title";
@@ -8,27 +8,67 @@ import logo1 from "../../../images/sections/gallery/logo1.svg";
 import logo2 from "../../../images/sections/gallery/logo2.svg";
 import logo3 from "../../../images/sections/gallery/logo3.svg";
 import logo4 from "../../../images/sections/gallery/logo4.svg";
-import image1 from "../../../images/sections/gallery/gallery1.png";
-import image2 from "../../../images/sections/gallery/gallery2.png";
-import image3 from "../../../images/sections/gallery/gallery3.png";
 import arrowLeft from "../../../images/sections/reviews/arrow-left.svg";
 import arrowRight from "../../../images/sections/reviews/arrow-right.svg";
+import { cadcam } from "../../../data/images/cadcam";
+import { cadStudio } from "../../../data/images/cadStudio";
+import { contour } from "../../../data/images/contour";
+import { senergy } from "../../../data/images/senergy";
+import ImageModal from "./ImageModal";
+import "./arrow-icon-swiper.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const images = [image1, image2, image3, image1, image2, image3];
 const logos = [
   { name: "contour", image: logo1 },
   { name: "senergy", image: logo2 },
-  { name: "cad-cam", image: logo3 },
-  { name: "cad-studio", image: logo4 },
+  { name: "cadcam", image: logo3 },
+  { name: "cadStudio", image: logo4 },
 ];
 
 const GallerySection = () => {
   const [currentCompany, setCurrentCompany] = useState("contour");
-  console.log(currentCompany);
+  const [currentImages, setCurrentImages] = useState(contour);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleSelectData() {
+    switch (currentCompany) {
+      case "contour":
+        setCurrentImages(contour);
+        setCurrentImageIndex(0);
+        break;
+      case "cadStudio":
+        setCurrentImages(cadStudio);
+        setCurrentImageIndex(0);
+        break;
+      case "cadcam":
+        setCurrentImages(cadcam);
+        setCurrentImageIndex(0);
+        break;
+      case "senergy":
+        setCurrentImages(senergy);
+        setCurrentImageIndex(0);
+        break;
+      default:
+        return [];
+    }
+  }
+
+  useEffect(() => {
+    handleSelectData();
+  }, [currentCompany]);
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section className="py-[90px]">
@@ -73,12 +113,18 @@ const GallerySection = () => {
               slidesPerView: 2.5,
               spaceBetween: 30,
             },
-          }}>
-          <button className="swiper-prev-gallery absolute left-[calc(25%-1.25%)] top-1/2  -translate-y-1/2  flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-white hover:bg-redCustom transition-colors duration-300 z-10">
-            <img src={arrowLeft} alt="arrow-left" />
+          }}
+          onSlideChange={(swiper) => setCurrentImageIndex(swiper.activeIndex)}>
+          <button className="swiper-prev-gallery group absolute left-[calc(25%-1.25%)] top-1/2  -translate-y-1/2  flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-black hover:bg-redCustom hover:text-white transition-colors duration-300 z-10">
+            <img
+              src={arrowLeft}
+              className="arrow-icon filter brightness-0 group-hover:brightness-100"
+              alt="arrow-left"
+            />
           </button>
-          {images.map((image, index) => (
+          {currentImages.map((image, index) => (
             <SwiperSlide
+              onClick={() => handleImageClick(index)}
               key={index}
               className="transition-opacity duration-500 z-50">
               {({ isActive }) => (
@@ -94,17 +140,28 @@ const GallerySection = () => {
                   <img
                     src={image}
                     alt={`Gallery image ${index + 1}`}
-                    className="w-[40.41vw] max-h-[400px] object-cover object-bottom z-50"
+                    className="w-[40.41vw] h-[400px] object-cover z-50"
                   />
                 </div>
               )}
             </SwiperSlide>
           ))}
-          <button className="swiper-next-gallery absolute right-[calc(25%-1.25%)] top-1/2 -translate-y-1/2  flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-white hover:bg-redCustom transition-colors duration-300 z-10">
-            <img src={arrowRight} alt="arrow-right" />
+          <button className="swiper-next-gallery group absolute right-[calc(25%-1.25%)] top-1/2 -translate-y-1/2  flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-white hover:bg-redCustom transition-colors duration-300 z-10">
+            <img
+              src={arrowRight}
+              className="arrow-icon filter brightness-0 group-hover:brightness-100"
+              alt="arrow-right"
+            />
           </button>
         </Swiper>
       </div>
+      {isModalOpen && (
+        <ImageModal
+          images={currentImages}
+          initialIndex={currentImageIndex}
+          onClose={handleModalClose}
+        />
+      )}
     </section>
   );
 };

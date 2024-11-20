@@ -22,7 +22,7 @@ const HeroSection = () => {
       </BackgroundImageWrapper>
 
       {/* Content layer */}
-      <div className="relative z-10 pt-[240px] pb-[90px]">
+      <div className="relative z-60 pt-[240px] pb-[90px]">
         <ContentContainer>
           <div className="flex flex-col">
             <MainTitleBlock />

@@ -13,8 +13,9 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+ 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-transparent pt-6 pb-6 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-transparent pt-6 pb-6 z-10">
       <ContentContainer>
         <div className="flex items-center justify-between h-16">
           <Logo />
@@ -34,7 +35,6 @@ const Header = () => {
 
           <div className="flex gap-3 justify-center items-center">
             <SwitchButton />
-            
 
             <Button className="uppercase">get in touch</Button>
           </div>
