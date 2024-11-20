@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import x from "../../../images/sections/gallery/x.svg";
+import image from "../../../images/sections/hero/7f5ca32e92fe673cb921b3112106da9c.png";
+import Description from "../../UI/Description";
+import { Box, TextField, Typography } from "@mui/material";
+import Button from "../../UI/Button";
 
 const FormModal = ({ onSubmit, onClose }) => {
   const [firstName, setFirstName] = useState("");
@@ -31,86 +35,114 @@ const FormModal = ({ onSubmit, onClose }) => {
         onClick={onClose}>
         <img src={x} className="w-[28px] h-[28px]" alt="close-button" />
       </button>
-      <div className="bg-white w-[450px] p-8 rounded-md relative">
-        <h2 className="text-2xl font-bold mb-4">Do you have any questions?</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex space-x-4">
-            <div className="flex-1">
-              <label
-                htmlFor="firstName"
-                className="block mb-1 text-sm font-medium">
-                First Name
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-redCustom"
+      <div className="bg-white w-[78.68%] h-[71.28%] min-h-[730px] px-[3.05%] py-[2.29%] rounded-md relative flex justify-between gap-[87px]">
+        <div>
+          <div className="max-w-[468px] mb-[63px]">
+            <h2 className="font-normal text-[32px] mb-4 uppercase pt-[37px]">
+              Do you have any questions?
+            </h2>
+            <Description className="font-normal text-[20px]">
+              Leave your details and we will definitely contact you!
+            </Description>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="flex space-x-4">
+              <div className="flex-1">
+                <TextField
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  variant="standard"
+                  required
+                  className="w-full"
+                  label="First Name"
+                  sx={{
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#A40004", // Color when the input is focused
+                    },
+                  }}
+                />
+              </div>
+              <div className="flex-1">
+                <TextField
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  variant="standard"
+                  required
+                  className="w-full"
+                  label="Last Name"
+                  sx={{
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#A40004", // Color when the input is focused
+                    },
+                  }}
+                />
+              </div>
+            </div>
+            <div>
+              <TextField
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                variant="standard"
                 required
+                className="w-full"
+                label="Email"
+                sx={{
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "#A40004", // Color when the input is focused
+                  },
+                }}
               />
             </div>
-            <div className="flex-1">
-              <label
-                htmlFor="lastName"
-                className="block mb-1 text-sm font-medium">
-                Last Name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-redCustom"
+            <div>
+              <TextField
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                variant="standard"
                 required
+                className="w-full"
+                label="Phone"
+                sx={{
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "#A40004", // Color when the input is focused
+                  },
+                }}
               />
             </div>
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-1 text-sm font-medium">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-redCustom"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="phone" className="block mb-1 text-sm font-medium">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-redCustom"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block mb-1 text-sm font-medium">
-              Message
-            </label>
-            <textarea
-              id="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-redCustom"
-              rows={4}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-redCustom text-white px-4 py-2 rounded-md hover:bg-redCustomDark transition-colors duration-300">
-            Send
-          </button>
-        </form>
+            <div>
+              <TextField
+                id="message"
+                multiline
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                variant="standard"
+                required
+                className="w-full mb-[44px]"
+                label="Message"
+                sx={{
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "#A40004", // Color when the input is focused
+                  },
+                }}
+              />
+            </div>
+            <Button variant="red-white" className="font-normal">
+              Send
+            </Button>
+          </form>
+        </div>
+        <div>
+          <img
+            src={image}
+            className="max-w-[490px] grayscale object-cover h-full"
+          />
+        </div>
       </div>
     </div>
   );

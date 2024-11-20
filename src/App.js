@@ -9,6 +9,7 @@ import PopularSection from "./components/sections/popular/PopularSection";
 import ReviewsSection from "./components/sections/reviews/ReviewsSection";
 import StoreSection from "./components/sections/store/StoreSection";
 import TrustedSection from "./components/sections/trusted/TrustedSection";
+import MessengerComponent from "./components/UI/Messanger";
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
       <HeroSection />
       <NumbersSection />
       <ChooseSection />
-      <TrustedSection />
+      {/* <TrustedSection />
       <ReviewsSection />
       <StoreSection />
       <PopularSection />
       <FounderSection />
       <GallerySection />
       <Footer />
+      <MessengerComponent /> */}
     </div>
   );
 }

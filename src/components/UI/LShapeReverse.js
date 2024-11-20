@@ -4,7 +4,7 @@ const LShapeReverse = () => {
   return (
     <div className="absolute bottom-[-25px] right-0 z-0">
       <div
-        className="relative h-[25px] w-[94.60px] bg-transparent justify-end z-0"
+        className="relative lg:h-[25px] lg:w-[94.60px] [@media(min-width:625px)]:h-[19px] [@media(min-width:625px)]:w-[72px]"
         style={{
           filter: "none",
           opacity: 1,
