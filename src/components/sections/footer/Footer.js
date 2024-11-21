@@ -22,7 +22,7 @@ export default function Footer() {
     <footer className="pt-[56px] pb-[20px] bg-[#191919]">
       <ContentContainer>
         <div className="flex flex-col justify-between">
-          <div className="flex justify-between pb-[72px]">
+          <div className="flex md:flex-nowrap flex-wrap justify-between pb-[72px]">
             <div className="flex flex-col justify-center items-start gap-[32px]">
               <Logo />
               <Description className="text-[20px] text-white">
@@ -31,7 +31,7 @@ export default function Footer() {
                 and prosthesis on implants
               </Description>
             </div>
-            <div className="flex flex-col gap-[32px] justify-start items-end">
+            <div className="flex flex-col gap-[32px] justify-start md:items-end items-start">
               <Description className="text-[20px] text-white">
                 Do you have any questions? Contact us!
               </Description>
@@ -159,7 +159,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-9 text-white opacity-[0.32] text-right">
+        <div className="mt-9 text-[12px] text-white opacity-[0.32] text-right">
           <p>&copy; Smile Energy Group 2024. All Rights Reserved.</p>
         </div>
       </ContentContainer>

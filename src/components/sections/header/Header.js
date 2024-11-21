@@ -14,7 +14,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > window.innerHeight / 4.3);
+      setIsScrolled(scrollPosition > window.innerHeight / 40);
     };
 
     // Add scroll event listener

@@ -35,17 +35,17 @@ const FormModal = ({ onSubmit, onClose }) => {
         onClick={onClose}>
         <img src={x} className="w-[28px] h-[28px]" alt="close-button" />
       </button>
-      <div className="bg-white w-[78.68%] h-[71.28%] min-h-[730px] px-[3.05%] py-[2.29%] rounded-md relative flex justify-between gap-[87px]">
+      <div className="bg-white xl:w-[78.68%] xl:h-[71.28%] w-[90%] h-[80%] min-h-[730px] px-[3.05%] xl:py-[2.29%] py-[25px] rounded-md relative flex xl:flex-row flex-col justify-between xl:gap-[87px] gap-[50px]">
         <div>
-          <div className="max-w-[468px] mb-[63px]">
-            <h2 className="font-normal text-[32px] mb-4 uppercase pt-[37px]">
+          <div className="max-w-[468px] xl:mb-[63px] mb-[20px]">
+            <h2 className="font-normal text-[32px] mb-4 uppercase xl:pt-[37px]">
               Do you have any questions?
             </h2>
             <Description className="font-normal text-[20px]">
               Leave your details and we will definitely contact you!
             </Description>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="xl:space-y-6 space-y-3">
             <div className="flex space-x-4">
               <div className="flex-1">
                 <TextField
@@ -137,10 +137,10 @@ const FormModal = ({ onSubmit, onClose }) => {
             </Button>
           </form>
         </div>
-        <div>
+        <div className="flex justify-center">
           <img
             src={image}
-            className="max-w-[490px] grayscale object-cover h-full"
+            className="xl:max-w-[490px] grayscale object-cover xl:h-full w-[40%] xl:w-full"
           />
         </div>
       </div>

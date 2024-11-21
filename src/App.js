@@ -22,10 +22,10 @@ function App() {
       <ReviewsSection />
       <StoreSection />
       <PopularSection />
-      {/* <FounderSection /> */}
-      {/* <GallerySection />
+      <FounderSection />
+      <GallerySection />
       <Footer />
-      <MessengerComponent /> */}
+      <MessengerComponent />
     </div>
   );
 }
