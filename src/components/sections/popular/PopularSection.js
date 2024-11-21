@@ -26,11 +26,11 @@ to the highest standards, it offers impeccable precision and stability. Its uniq
 
 export default function PopularSection() {
   return (
-    <section className="bg-white pb-[90px]">
+    <section className="bg-white lg:pb-[90px] md:pb-[60px] pb-[40px]">
       <ContentContainer>
-        <div className="flex justify-between items-center gap-2">
+        <div className="flex justify-between md:flex-row flex-col md:items-center items-start gap-2">
           <Title>Popular products</Title>
-          <Description className="text-[#191919] max-w-[437px] text-right">
+          <Description className="text-[#191919] md:max-w-[437px] md:text-right text-left">
             The following materials are the most popular among the presented
             products
           </Description>
@@ -57,19 +57,19 @@ export default function PopularSection() {
             className="popular-swiper">
             {popular.map((item, index) => (
               <SwiperSlide key={index} className="flex !important">
-                <div className="flex justify-between items-center gap-2 pt-[42px]">
-                  <div className="flex-grow-0 flex-shrink-1 flex-basis-[33.89%] w-[33.89%] flex justify-center items-center">
+                <div className="flex justify-between md:flex-row flex-col items-center gap-2 pt-[42px]">
+                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[50%] flex justify-center items-center">
                     <img src={item.image} alt={item.title} />
                   </div>
 
-                  <div className="flex-grow-0 flex-shrink-1 flex-basis-[59.11%] flex flex-col justify-between gap-[32px]">
+                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[59.11%] flex-basis-[50%] flex flex-col justify-between gap-[32px]">
                     <h3 className="text-[32px] leading-[38.73px] font-normal">
                       {item.title}
                     </h3>
                     <Description className="max-w-[804px]">
                       {item.description}
                     </Description>
-                    <div className="flex-grow-0">
+                    <div className="flex-grow-0 md:mb-1 mb-[56px]">
                       <Button variant="black-red">Read More</Button>
                     </div>
                   </div>
@@ -79,7 +79,7 @@ export default function PopularSection() {
           </Swiper>
 
           {/* Custom Pagination Container */}
-          <div className="swiper-custom-pagination flex justify-center mt-[30px]"></div>
+          <div className="swiper-custom-pagination flex md:justify-center justify-start mt-[30px]"></div>
         </div>
       </ContentContainer>
     </section>

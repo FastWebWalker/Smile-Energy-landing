@@ -19,11 +19,11 @@ function App() {
       <NumbersSection />
       <ChooseSection />
       <TrustedSection />
-      {/* <ReviewsSection />
+      <ReviewsSection />
       <StoreSection />
       <PopularSection />
-      <FounderSection />
-      <GallerySection />
+      {/* <FounderSection /> */}
+      {/* <GallerySection />
       <Footer />
       <MessengerComponent /> */}
     </div>

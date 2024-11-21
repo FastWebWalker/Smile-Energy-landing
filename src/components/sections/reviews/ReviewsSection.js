@@ -14,6 +14,7 @@ import review3 from "../../../images/sections/reviews/image3.png";
 import review4 from "../../../images/sections/reviews/image4.png";
 import arrowRight from "../../../images/sections/reviews/arrow-right.svg";
 import arrowLeft from "../../../images/sections/reviews/arrow-left.svg";
+import { useMediaQuery } from "@mui/material";
 
 const reviews = [
   {
@@ -47,17 +48,24 @@ const reviews = [
 ];
 
 export default function ReviewsSection() {
+  const isLargeDesktop = useMediaQuery("(min-width:1280px)");
+  const isDesktop = useMediaQuery("(min-width:1024px) and (max-width:1280px)");
+  const isTablet = useMediaQuery("(min-width:625px) and (max-width:1023px)");
+  const isMobile = useMediaQuery("(max-width:767px)");
+
+  const slides = isLargeDesktop ? 2 : 1;
+
   return (
-    <section className="py-16 bg-[#111111]">
+    <section className="lg:py-16 md:py-[30px] py-[20px] bg-[#111111]">
       <ContentContainer>
         <div className="relative">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between lg:mb-12 md:mb-[40px] mb-[32px] flex-wrap gap-[24px]">
             <Title className="text-white">REVIEWS OF OUR CLIENTS</Title>
             <div className="relative flex gap-[6px] justify-center items-center">
-              <button className="swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-white text-white hover:bg-redCustom transition-colors duration-300">
+              <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-white text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowLeft} alt="arrow-left" />
               </button>
-              <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] border border-white text-white hover:bg-redCustom transition-colors duration-300">
+              <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-white text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowRight} alt="arrow-right" />
               </button>
             </div>
@@ -66,7 +74,7 @@ export default function ReviewsSection() {
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={72}
-            slidesPerView={2}
+            slidesPerView={slides}
             navigation={{
               nextEl: ".swiper-next",
               prevEl: ".swiper-prev",
@@ -84,7 +92,7 @@ export default function ReviewsSection() {
             className="reviews-swiper">
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
-                <div className="flex gap-[21px]">
+                <div className="flex gap-[21px] sm:flex-row flex-col-reverse">
                   <div className="flex-shrink-0">
                     <img
                       src={review.image}
@@ -112,7 +120,7 @@ export default function ReviewsSection() {
           </Swiper>
 
           {/* Custom Pagination Container */}
-          <div className="swiper-custom-pagination-reviews flex justify-center mt-[52px]"></div>
+          <div className="swiper-custom-pagination-reviews flex justify-center lg:mt-[52px] md:mt-[30px] mt-[20px]"></div>
         </div>
       </ContentContainer>
 
@@ -133,7 +141,7 @@ export default function ReviewsSection() {
           margin: 0 4px;
           display: inline-block;
           opacity: 0.5;
-          background: #fff;
+          background: #191919;
           cursor: pointer;
           transition: all 0.3s ease;
         }

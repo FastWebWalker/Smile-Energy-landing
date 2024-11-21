@@ -6,13 +6,13 @@ import Button from "../../UI/Button";
 
 export default function StoreSection() {
   return (
-    <section className="pt-[90px] pb-[49px] mb-[31px] bg-white relative ">
+    <section className="lg:pt-[90px] md:pt-[60px] pt-[30px] lg:pb-[49px] md:pb-[35px] pb-[]  mb-[31px] bg-white relative ">
       <span className="absolute w-[0.5px] bg-redCustom h-[100%] top-0 left-[50%] opacity-[20%]"></span>
       <span className="absolute w-[100%] bg-redCustom h-[0.5px] bottom-0 left-0 opacity-[20%]"></span>
       <ContentContainer>
-        <div className="flex justify-between items-center gap-2">
+        <div className="flex lg:flex-row flex-col justify-between items-center gap-2">
           {/* Flex Column for Text Content */}
-          <div className="flex flex-col gap-[32px] flex-grow-0 flex-shrink-0 basis-[49.04%]">
+          <div className="flex flex-col lg:gap-[32px] gap-[20px] flex-grow-0 flex-shrink-0 xl:basis-[49.04%] basis-[40%]  [@media(max-width:1024px)]:mb-[74px] [@media(max-width:600px)]:mb-[32px]">
             <Title>Our online store - SeTrade</Title>
             <Description className="text-[#191919]">
               Every smile is an expression of personality and careful attitude
@@ -30,7 +30,7 @@ export default function StoreSection() {
           </div>
 
           {/* Flex Column for Image */}
-          <div className="flex-grow-0 flex-shrink-0 basis-[44.411%]">
+          <div className="flex-grow-0 flex-shrink-0 lg:basis-[44.411%] basis-[100%] [@media(max-width:1024px)]:w-[100%] ">
             <img src={teethImage} alt="teeth-image" className="w-full h-auto" />
           </div>
         </div>
