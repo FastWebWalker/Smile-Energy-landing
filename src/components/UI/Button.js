@@ -60,7 +60,7 @@ const Button = ({
       case "white-white":
         return "bg-white text-black border border-white hover:bg-transparent hover:text-white hover:border hover:border-white";
       case "black-red":
-        return "bg-transparent text-black border border-black hover:bg-redCustom hover:text-white hover:border hover:border-black";
+        return "bg-transparent text-black border border-black hover:bg-redCustom hover:text-white hover:border hover:border-redCustom";
       default:
         return "bg-white text-black border border-white hover:bg-transparent hover:text-white hover:border hover:border-white";
     }

@@ -62,10 +62,10 @@ export default function ReviewsSection() {
           <div className="flex items-center justify-between lg:mb-12 md:mb-[40px] mb-[32px] flex-wrap gap-[24px]">
             <Title className="text-white">REVIEWS OF OUR CLIENTS</Title>
             <div className="relative flex gap-[6px] justify-center items-center">
-              <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-white text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+              <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowLeft} alt="arrow-left" />
               </button>
-              <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-white text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+              <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowRight} alt="arrow-right" />
               </button>
             </div>

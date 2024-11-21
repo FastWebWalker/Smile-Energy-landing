@@ -26,9 +26,8 @@ const HeroSection = () => {
         style={{ backgroundPosition: "center 61%" }}>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       </BackgroundImageWrapper>
-
       {/* Content layer */}
-      <div className="relative z-60 lg:pt-[240px] md:pt-[130px] pt-[92px] lg:pb-[90px] md:pb-[56px] pb-[48px]">
+      <div className="relative z-60 sm:pt-[15%] pt-[20%] lg:pb-[90px] md:pb-[56px] pb-[48px]">
         <ContentContainer>
           <div className="flex flex-col">
             {isTablet && (
@@ -47,7 +46,9 @@ const HeroSection = () => {
               </Description>
             )}
             <div className="flex gap-3 lg:mb-[78px] md:mb-[85px] mb-[28px]  mt-[32px]">
-              <Button variant="red-white" className="bg-redCustom">
+              <Button
+                variant="red-white"
+                className="bg-redCustom hover:bg-white hover:border-white">
                 Our Store
               </Button>
               <Button variant="white-white">Order A Call</Button>

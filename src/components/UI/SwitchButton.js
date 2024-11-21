@@ -4,7 +4,7 @@ const LanguageToggle = () => {
   const [language, setLanguage] = useState("EN");
 
   return (
-    <div className="w-[109px] h-[40px] inline-flex items-center p-1 rounded-[30px] bg-transparent relative border border-[0.3px] border-[rgba(255,255,255,0.7)]">
+    <div className="w-[109px] h-[40px] inline-flex items-center p-1 rounded-[30px] bg-transparent relative border border-[0.3px] border-[rgba(255,255,255,0.4)]">
       {/* Sliding background */}
       <div
         className={`absolute h-[30px] w-[50px] bg-redCustom rounded-[30px] transition-all duration-300 ease-in-out ${
