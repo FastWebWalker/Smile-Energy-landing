@@ -3,6 +3,7 @@ import HeroTitle from "../../UI/HeroTitle";
 import LShape from "../../UI/LShape";
 import LShapeReverse from "../../UI/LShapeReverse";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslation } from "react-i18next";
 
 export default function MainTitleBlock() {
   const isDesktop = useMediaQuery("(min-width:1024px)");
@@ -11,6 +12,7 @@ export default function MainTitleBlock() {
     "(min-width:625px) and (max-width:1023px)"
   );
   const isMobile = useMediaQuery("(max-width:624px)");
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col relative">
@@ -23,8 +25,7 @@ export default function MainTitleBlock() {
             <HeroTitle>global leaders</HeroTitle>
             {isDesktop && (
               <Description className="text-white max-w-[350px]">
-                Unlock the potential of your smile with our advanced solutions
-                for dental laboratories, orthopedics and implantology.
+                {t("heroSection.description1")}
               </Description>
             )}
           </div>
@@ -34,8 +35,7 @@ export default function MainTitleBlock() {
           <div className="flex lg:justify-between justify-end items-center">
             {isDesktop && (
               <Description className=" text-white max-w-[324px] mt-8">
-                Don't waste time!
-                <br /> Order a call now and find out all the details.
+                {t("heroSection.description2")}
               </Description>
             )}
 

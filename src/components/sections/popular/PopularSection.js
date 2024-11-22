@@ -9,30 +9,29 @@ import "swiper/css/pagination";
 import image1 from "../../../images/sections/popular/image1.jpg";
 import image2 from "../../../images/sections/popular/image2.jpg";
 import Button from "../../UI/Button";
-
-const popular = [
-  {
-    image: image1,
-    title: "AmeraLabs DMD-2/1 LED Sand",
-    description: `A real miracle for creating dental models. Designed and manufactured to the highest
-to the highest standards, it offers impeccable precision and stability. Its unique properties ensure outstanding quality of reproduction, making it one of the most of the most effective materials for creating dental models`,
-  },
-  {
-    image: image2,
-    title: "Slim Pad Pro - Build Up",
-    description: `Takes a special place among ceramic ones products. It opens up new opportunities for dentists, giving them a wide palette for mixing ceramics that provides not only an impeccable result, but also incredible simplicity in work.`,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function PopularSection() {
+  const { t } = useTranslation();
+  const popular = [
+    {
+      image: image1,
+      title: `${t("popularSection.products.0.title")}`,
+      description: `${t("popularSection.products.0.description")}`,
+    },
+    {
+      image: image2,
+      title: `${t("popularSection.products.1.title")}`,
+      description: `${t("popularSection.products.1.description")}`,
+    },
+  ];
   return (
     <section className="bg-white lg:pb-[90px] md:pb-[60px] pb-[40px]">
       <ContentContainer>
         <div className="flex justify-between md:flex-row flex-col md:items-center items-start gap-2">
-          <Title>Popular products</Title>
+          <Title>{t("popularSection.title")}</Title>
           <Description className="text-[#191919] md:max-w-[437px] md:text-right text-left">
-            The following materials are the most popular among the presented
-            products
+            {t("popularSection.description")}
           </Description>
         </div>
         <div>
@@ -70,7 +69,9 @@ export default function PopularSection() {
                       {item.description}
                     </Description>
                     <div className="flex-grow-0 md:mb-1 mb-[56px]">
-                      <Button variant="black-red">Read More</Button>
+                      <Button variant="black-red">
+                        {t("popularSection.button")}
+                      </Button>
                     </div>
                   </div>
                 </div>

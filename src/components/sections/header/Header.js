@@ -6,10 +6,12 @@ import ContentContainer from "../../UI/ContentContainer";
 import Logo from "./Logo";
 import SwitchButton from "../../UI/SwitchButton";
 import Button from "../../UI/Button";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +44,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden [@media(min-width:960px)]:block">
             <ul className="flex justify-center items-center gap-[42px] max-lg:gap-[24px]">
-              {["Services", "Products", "Reviews", "About us"].map((item) => (
+              {[
+                t("header.navigation.services"),
+                t("header.navigation.products"),
+                t("header.navigation.reviews"),
+                t("header.navigation.aboutUs"),
+              ].map((item) => (
                 <li key={item}>
                   <a href="#" className="uppercase text-white">
                     {item}
@@ -54,7 +61,9 @@ const Header = () => {
           <div className=" gap-3 justify-center items-center hidden [@media(min-width:960px)]:flex">
             <SwitchButton />
 
-            <Button className="uppercase">get in touch</Button>
+            <Button className="uppercase">
+              {t("header.buttons.getInTouch")}
+            </Button>
           </div>
 
           <button
@@ -126,7 +135,12 @@ const Header = () => {
               className="[@media(min-width:960px)]:hidden overflow-hidden absolute top-0 left-0 w-[100vw] bg-[#111111]  flex flex-col justify-center gap-[50px] p-[44px] items-center">
               <SwitchButton />
               <ul className="flex flex-col justify-center items-center text-[25px] gap-[42px]">
-                {["Services", "Products", "Reviews", "About us"].map((item) => (
+                {[
+                  t("header.navigation.services"),
+                  t("header.navigation.products"),
+                  t("header.navigation.reviews"),
+                  t("header.navigation.aboutUs"),
+                ].map((item) => (
                   <li key={item}>
                     <a href="#" className="uppercase text-white">
                       {item}
@@ -134,7 +148,9 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="uppercase z-50">get in touch</Button>
+              <Button className="uppercase z-50">
+                {t("header.buttons.getInTouch")}
+              </Button>
             </motion.nav>
           )}
         </AnimatePresence>

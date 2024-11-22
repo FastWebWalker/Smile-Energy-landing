@@ -15,52 +15,46 @@ import review4 from "../../../images/sections/reviews/image4.png";
 import arrowRight from "../../../images/sections/reviews/arrow-right.svg";
 import arrowLeft from "../../../images/sections/reviews/arrow-left.svg";
 import { useMediaQuery } from "@mui/material";
-
-const reviews = [
-  {
-    name: "Hrynyk Rustam",
-    position: "Dentist, Lviv",
-    image: review1,
-    quote:
-      "The most important thing in the high-quality work of an orthopedist is the high-quality work of a technician... Thank you to Serhiy Hrybovskiy's laboratory!",
-  },
-  {
-    name: "Ewan Bramley",
-    position: "Dentist, United Kingdom",
-    image: review2,
-    quote:
-      "Thank you Serhiy! I am so grateful to have met you and found your fantastic dental lab. All the best to you and your family for 2020. Let's make it a fantastic year for us both.",
-  },
-  {
-    name: "Pidhoretskiy Ruslan",
-    position: "Dentist, Kyiv",
-    image: review3,
-    quote:
-      "A really cool laboratory. Laba, which is constantly developing, instantly responds to a call, is always in touch. All work is done on time, according to the given terms... Pleasant cooperation that has been going on for years.",
-  },
-  {
-    name: "Hubal Myroslav",
-    position: "Dentist, Khust",
-    image: review4,
-    quote:
-      "I wanted to work with a digital laboratory. People always hear me here. Everything was done in the promised time.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function ReviewsSection() {
   const isLargeDesktop = useMediaQuery("(min-width:1280px)");
-  const isDesktop = useMediaQuery("(min-width:1024px) and (max-width:1280px)");
-  const isTablet = useMediaQuery("(min-width:625px) and (max-width:1023px)");
-  const isMobile = useMediaQuery("(max-width:767px)");
-
   const slides = isLargeDesktop ? 2 : 1;
+  const { t } = useTranslation();
+
+  const reviews = [
+    {
+      name: `${t("reviewsSection.reviews.0.name")}`,
+      position: `${t("reviewsSection.reviews.0.position")}`,
+      image: review1,
+      quote: `${t("reviewsSection.reviews.0.quote")}`,
+    },
+    {
+      name: `${t("reviewsSection.reviews.1.name")}`,
+      position: `${t("reviewsSection.reviews.1.position")}`,
+      image: review2,
+      quote: `${t("reviewsSection.reviews.1.quote")}`,
+    },
+    {
+      name: `${t("reviewsSection.reviews.2.name")}`,
+      position: `${t("reviewsSection.reviews.2.position")}`,
+      image: review3,
+      quote: `${t("reviewsSection.reviews.2.quote")}`,
+    },
+    {
+      name: `${t("reviewsSection.reviews.3.name")}`,
+      position: `${t("reviewsSection.reviews.3.position")}`,
+      image: review4,
+      quote: `${t("reviewsSection.reviews.3.quote")}`,
+    },
+  ];
 
   return (
     <section className="lg:py-16 md:py-[30px] py-[20px] bg-[#111111]">
       <ContentContainer>
         <div className="relative">
           <div className="flex items-center justify-between lg:mb-12 md:mb-[40px] mb-[32px] flex-wrap gap-[24px]">
-            <Title className="text-white">REVIEWS OF OUR CLIENTS</Title>
+            <Title className="text-white">{t("reviewsSection.title")}</Title>
             <div className="relative flex gap-[6px] justify-center items-center">
               <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowLeft} alt="arrow-left" />

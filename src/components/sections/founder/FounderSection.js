@@ -8,12 +8,14 @@ import group3 from "../../../images/sections/founder/Group3.svg";
 import group4 from "../../../images/sections/founder/Group4.svg";
 import group5 from "../../../images/sections/founder/Group5.svg";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function FounderSection() {
   const isDesktopLarge = useMediaQuery("(min-width:1280px)");
   const isDesktop = useMediaQuery("(min-width:1024px) and (max-width: 1279px");
   const isTablet = useMediaQuery("(min-width:768px) and (max-width:1023px)");
   const isMobile = useMediaQuery("(max-width:767px)");
+  const { t } = useTranslation();
   return (
     <>
       {!isMobile ? (
@@ -24,23 +26,19 @@ export default function FounderSection() {
                 <div className="flex flex-col justify-between gap-[97px] items-center">
                   <div className="flex flex-col">
                     <h3 className="font-normal text-[44px] mb-1">
-                      Serhiy Hrybovskiy
+                      {t("founderSection.name")}
                     </h3>
-                    <p className="text-[20px] mb-8">Founder of the company</p>
+                    <p className="text-[20px] mb-8">
+                      {t("founderSection.title")}
+                    </p>
                     <Description className="lg:max-w-[667px] max-w-[400px]">
-                      Each technician has an original approach to work that is
-                      unique to him or her. This reflects the love for their
-                      work in working on customer orders. At all stages of
-                      cooperation with the dentist, clients receive full
-                      information support of the highest class. We treat many
-                      patients throughout their lives. We advise, recommend,
-                      consult and help.
+                      {t("founderSection.description")}
                     </Description>
                   </div>
                   {isDesktopLarge && (
                     <div className="flex flex-col items-start justify-start gap-[32px] -ml-5">
                       <h4 className="text-[32px] font-normal ">
-                        Our laboratories:
+                        {t("founderSection.labsTitle")}
                       </h4>
                       <div className="grid grid-cols-3 gap-x-[68px] gap-y-[12px]">
                         <div className="w-[169px] h-[80px] flex justify-center items-center ">

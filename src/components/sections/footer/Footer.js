@@ -8,9 +8,12 @@ import linkedIn from "../../../images/sections/footer/linkedIn.svg";
 import telegram from "../../../images/sections/footer/telegram.svg";
 import FormModal from "../hero/FormModal";
 import { useState } from "react";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 
 export default function Footer() {
   const [formIsOpen, setFormIsOpen] = useState(false);
+  const { t } = useTranslation(); // Use the translation function
+
   const handleSubmit = () => {
     setFormIsOpen(true);
   };
@@ -18,6 +21,7 @@ export default function Footer() {
   const handleClose = () => {
     setFormIsOpen(false);
   };
+
   return (
     <footer className="pt-[56px] pb-[20px] bg-[#191919]">
       <ContentContainer>
@@ -26,133 +30,159 @@ export default function Footer() {
             <div className="flex flex-col justify-center items-start gap-[32px]">
               <Logo />
               <Description className="text-[20px] text-white">
-                Global expert in dental laboratories, orthopedics,
+                {t("footerSection.description.line1")}
                 <br />
-                and prosthesis on implants
+                {t("footerSection.description.line2")}
               </Description>
             </div>
             <div className="flex flex-col gap-[32px] justify-start md:items-end items-start">
               <Description className="text-[20px] text-white">
-                Do you have any questions? Contact us!
+                {t("footerSection.contactUs")}
               </Description>
               <div className="flex-grow-0">
                 <button onClick={handleSubmit}>
-                  <Button variant="white-white">Order A Call</Button>
+                  <Button variant="white-white">
+                    {t("footerSection.orderCallButton")}
+                  </Button>
                 </button>
               </div>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white non-italic">
             <div>
-              <h4 className="font-normal mb-4">Contact Us</h4>
+              <h4 className="font-normal mb-4">
+                {t("footerSection.contactUs")}
+              </h4>
               <div>
                 <div className=" mb-3">
-                  Address:
+                  {t("footerSection.address.title")}:
                   <br />
                   <span className="opacity-50">
-                    43 Pasichna str., Lviv, Ukraine
+                    {t("footerSection.address.content")}
                   </span>
                 </div>
               </div>
 
               <div className=" mb-3">
-                Phone number:
+                {t("footerSection.phone.title")}:
                 <br />
-                <span className="opacity-50">+38(068)-385-35-35</span>
+                <span className="opacity-50">
+                  {t("footerSection.phone.content")}
+                </span>
               </div>
               <div>
-                Email:
+                {t("footerSection.email.title")}:
                 <br />
-                <span className="opacity-50">smilenergygroup.ua@gmail.com</span>
+                <span className="opacity-50">
+                  {t("footerSection.email.content")}
+                </span>
               </div>
             </div>
             <div>
-              <h4 className="font-normal mb-6">Page</h4>
+              <h4 className="font-normal mb-6">
+                {t("footerSection.page.title")}
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    About Us
+                    {t("footerSection.page.links.aboutUs")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Services
+                    {t("footerSection.page.links.services")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Products
+                    {t("footerSection.page.links.products")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Reviews
+                    {t("footerSection.page.links.reviews")}
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-normal mb-6">Our Laboratories</h4>
+              <h4 className="font-normal mb-6">
+                {t("footerSection.ourLaboratories.title")}
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    CadCam Energy
+                    {t("footerSection.ourLaboratories.labs.cadCamEnergy")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Contour
+                    {t("footerSection.ourLaboratories.labs.contour")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Senergy
+                    {t("footerSection.ourLaboratories.labs.senergy")}
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="opacity-50 hover:opacity-100 transition-all">
-                    Cad Studio
+                    {t("footerSection.ourLaboratories.labs.cadStudio")}
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-medium mb-4">Media</h4>
+              <h4 className="text-lg font-medium mb-4">
+                {t("footerSection.media.title")}
+              </h4>
               <ul className="flex space-x-[22px]">
                 <li>
                   <a href="#" className="hover:text-white">
-                    <img src={instagram} alt="instagram" />
+                    <img
+                      src={instagram}
+                      alt={t("footerSection.media.socials.instagram")}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    <img src={facebook} alt="facebook" />
+                    <img
+                      src={facebook}
+                      alt={t("footerSection.media.socials.facebook")}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    <img src={linkedIn} alt="linkedIn" />
+                    <img
+                      src={linkedIn}
+                      alt={t("footerSection.media.socials.linkedIn")}
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    <img src={telegram} alt="telegram" />
+                    <img
+                      src={telegram}
+                      alt={t("footerSection.media.socials.telegram")}
+                    />
                   </a>
                 </li>
               </ul>
@@ -160,7 +190,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-9 text-[12px] text-white opacity-[0.32] text-right">
-          <p>&copy; Smile Energy Group 2024. All Rights Reserved.</p>
+          <p>&copy; {t("footerSection.copyright")}</p>
         </div>
       </ContentContainer>
       {formIsOpen && (

@@ -17,6 +17,7 @@ import { senergy } from "../../../data/images/senergy";
 import ImageModal from "./ImageModal";
 import "./arrow-icon-swiper.css";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -34,6 +35,7 @@ const GallerySection = () => {
   const [currentImages, setCurrentImages] = useState(contour);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   const isMobile = useMediaQuery("(max-width:767px)");
 
@@ -77,9 +79,9 @@ const GallerySection = () => {
     <section className="lg:py-[90px] md:py-[60px] py-[30px]">
       <ContentContainer>
         <div className="flex lg:flex-row flex-col justify-between lg:items-center lg:gap-2 gap-y-[24px] mb-[46px]">
-          <Title>Gallery of works</Title>
+          <Title>{t("gallerySection.title")}</Title>
           <Description className="lg:max-w-[437px] lg:text-right">
-            Check out all our works and make sure of our professionalism!
+            {t("gallerySection.description")}
           </Description>
         </div>
 

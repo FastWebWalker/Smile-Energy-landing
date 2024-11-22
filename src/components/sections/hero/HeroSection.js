@@ -11,12 +11,13 @@ import company4 from "../../../images/sections/hero/company4.svg";
 import company5 from "../../../images/sections/hero/company5.svg";
 import Description from "../../UI/Description";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
   const isDesktop = useMediaQuery("(min-width:1024px)");
   const isTablet = useMediaQuery("(min-width:625px) and (max-width:1023px)");
   const isMobile = useMediaQuery("(max-width:767px)");
-
+  const { t } = useTranslation();
   return (
     <section className="relative">
       {/* Background layer */}
@@ -49,9 +50,9 @@ const HeroSection = () => {
               <Button
                 variant="red-white"
                 className="bg-redCustom hover:bg-white hover:border-white">
-                Our Store
+                {t("buttons.ourStore")}
               </Button>
-              <Button variant="white-white">Order A Call</Button>
+              <Button variant="white-white"> {t("buttons.orderCall")}</Button>
             </div>
             <div className="flex lg:justify-start lg:h-[42px] md:h-[50px] h-[42px]  items-center gap-3 flex-wrap [@media(max-width:767px)]:mb-[48px]">
               <img src={company1} className="h-full opacity-70" />
