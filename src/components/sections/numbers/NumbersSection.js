@@ -135,14 +135,14 @@ export default function NumbersSection() {
           <div className="flex justify-between items-center gap-[35px] w-[100%]">
             <motion.div variants={itemVariants}>
               <NumberItem
-                title="80+"
+                title="80"
                 description={`${t("numbersSection.experience")}`}
                 className="flex-[0_1_50%]"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <NumberItem
-                title="3500+"
+                title="3500"
                 description={`${t("numbersSection.cases")}`}
                 className="flex-[0_1_50%]"
               />
@@ -151,14 +151,14 @@ export default function NumbersSection() {
           <div className="flex justify-between items-center gap-[35px] w-[100%]">
             <motion.div variants={itemVariants}>
               <NumberItem
-                title="60+"
+                title="60"
                 description={`${t("numbersSection.partners")}`}
                 className="flex-[0_1_50%]"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <NumberItem
-                title="1500+"
+                title="1500"
                 description={`${t("numbersSection.customers")}`}
                 className="flex-[0_1_50%]"
               />

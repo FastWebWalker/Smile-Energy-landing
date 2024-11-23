@@ -2,7 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 @layer utilities {
   .animation-pause {
     animation-play-state: paused;
@@ -29,6 +28,8 @@ code {
 html,
 body {
   scrollbar-width: none; /* Firefox */
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar,
