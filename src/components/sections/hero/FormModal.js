@@ -5,6 +5,7 @@ import Description from "../../UI/Description";
 import { TextField } from "@mui/material";
 import Button from "../../UI/Button";
 import ContentContainer from "../../UI/ContentContainer";
+import { useTranslation } from "react-i18next";
 
 const FormModal = ({ onSubmit, onClose }) => {
   const [firstName, setFirstName] = useState("");
@@ -12,6 +13,7 @@ const FormModal = ({ onSubmit, onClose }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const { t } = useTranslation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,10 +59,10 @@ const FormModal = ({ onSubmit, onClose }) => {
           <div>
             <div className="max-w-[468px] xl:mb-[63px] mb-[20px]">
               <h2 className="font-normal text-[32px] mb-4 uppercase xl:pt-[37px]">
-                Do you have any questions?
+               {t("formModal.title")}
               </h2>
               <Description className="font-normal text-[20px]">
-                Leave your details and we will definitely contact you!
+                {t("formModal.description")}
               </Description>
             </div>
             <form onSubmit={handleSubmit} className="xl:space-y-6 space-y-3">
@@ -150,9 +152,11 @@ const FormModal = ({ onSubmit, onClose }) => {
                   }}
                 />
               </div>
-              <Button variant="red-white" className="font-normal">
-                Send
-              </Button>
+              <button onClick={handleSubmit}>
+                <Button variant="red-white" className="font-normal">
+                  Send
+                </Button>
+              </button>
             </form>
           </div>
           <div className="flex justify-center">

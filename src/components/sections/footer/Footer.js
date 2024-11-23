@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="flex md:flex-nowrap flex-wrap justify-between pb-[72px]">
             <div className="flex flex-col justify-center items-start gap-[32px]">
               <Logo />
-              <Description className="text-[20px] text-white">
+              <Description className="text-[20px] text-white mb-0 sm:mb-[20px]">
                 {t("footerSection.description.line1")}
                 <br />
                 {t("footerSection.description.line2")}
@@ -50,9 +50,7 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white non-italic">
             <div>
-              <h4 className="font-normal mb-4">
-                {t("footerSection.contactUs")}
-              </h4>
+             
               <div>
                 <div className=" mb-3">
                   {t("footerSection.address.title")}:
@@ -154,7 +152,10 @@ export default function Footer() {
               </h4>
               <ul className="flex space-x-[22px]">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a
+                    href="https://www.instagram.com/contour_lab/?igshid=YmMyMTA2M2Y%3D"
+                    target="_no_blank"
+                    className="hover:text-white">
                     <img
                       src={instagram}
                       alt={t("footerSection.media.socials.instagram")}
@@ -162,7 +163,10 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a
+                    href="https://www.facebook.com/contour.laboratory/?_rdr"
+                    target="_no_blank"
+                    className="hover:text-white">
                     <img
                       src={facebook}
                       alt={t("footerSection.media.socials.facebook")}
@@ -170,7 +174,10 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a
+                    href="https://www.linkedin.com/company/smile-energy-group/posts/?feedView=all"
+                    className="hover:text-white"
+                    target="_no_blank">
                     <img
                       src={linkedIn}
                       alt={t("footerSection.media.socials.linkedIn")}
@@ -178,7 +185,11 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a
+                    href="https://t.me/+hvMUwEQGYac2NTVi
+"
+                    target="_no_blank"
+                    className="hover:text-white">
                     <img
                       src={telegram}
                       alt={t("footerSection.media.socials.telegram")}

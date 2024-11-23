@@ -120,7 +120,7 @@
       "line1": "Global expert in dental laboratories, orthopedics,",
       "line2": "and prosthesis on implants"
     },
-    "contactUs": "Contact Us",
+    "contactUs": "Do you have any questions? Contact us!",
     "address": {
       "title": "Address",
       "content": "43 Pasichna str., Lviv, Ukraine"
@@ -143,7 +143,7 @@
       }
     },
     "ourLaboratories": {
-      "title": "Our Laboratories",
+      "title": "Our Laboratories:",
       "labs": {
         "cadCamEnergy": "CadCam Energy",
         "contour": "Contour",
@@ -167,5 +167,9 @@
     "title": "Oops! Something went wrong...",
     "description": "Go to the main page for the information you need",
     "button": "Back to Home"
+  },
+  "formModal": {
+    "title": "Do you have any questions?",
+    "description": "Leave your details and we will definitely contact you!"
   }
 }

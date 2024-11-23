@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "./en/en.json";
 import ua from "./ua/ua.json";
 
-const SUPPORTED_LANGUAGES = ["en", "de"];
+const SUPPORTED_LANGUAGES = ["en", "ua"];
 let lng = localStorage.getItem("i18nextLng");
 
 if (!lng) {

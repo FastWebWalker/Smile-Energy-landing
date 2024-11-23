@@ -10,6 +10,7 @@ import image1 from "../../../images/sections/popular/image1.jpg";
 import image2 from "../../../images/sections/popular/image2.jpg";
 import Button from "../../UI/Button";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function PopularSection() {
   const { t } = useTranslation();
@@ -18,11 +19,13 @@ export default function PopularSection() {
       image: image1,
       title: `${t("popularSection.products.0.title")}`,
       description: `${t("popularSection.products.0.description")}`,
+      url: "https://www.setrade.com.ua/product/ameralabs-dmd-21/",
     },
     {
       image: image2,
       title: `${t("popularSection.products.1.title")}`,
       description: `${t("popularSection.products.1.description")}`,
+      url: "https://www.setrade.com.ua/product/smile-line-palitra-slimpad-pro-dlia-zamishuvannia-keramiky-chorna/",
     },
   ];
   return (
@@ -69,9 +72,14 @@ export default function PopularSection() {
                       {item.description}
                     </Description>
                     <div className="flex-grow-0 md:mb-1 mb-[56px]">
-                      <Button variant="black-red">
-                        {t("popularSection.button")}
-                      </Button>
+                      <Link
+                        to={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <Button variant="black-red">
+                          {t("popularSection.button")}
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>

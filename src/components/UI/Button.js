@@ -45,6 +45,7 @@ const Button = ({
   className,
   variant = "default", // 'default', 'red', 'black'
   outlined = false,
+  withoutArrow = false,
 }) => {
   const baseClasses =
     "inline-flex justify-center items-center gap-[6px] rounded-[30px] px-[20px] py-[9px] font-normal cursor-pointer transition-all duration-300";
@@ -86,7 +87,7 @@ const Button = ({
       target="_blank"
       rel="noopener noreferrer">
       <span>{children}</span>
-      <ArrowIcon variant={variant} />
+      {withoutArrow ? "" : <ArrowIcon variant={variant} />}
     </a>
   );
 };

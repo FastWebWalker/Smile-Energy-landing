@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { MessageCircle } from "lucide-react";
+import image1 from "../../images/sections/messanger/Social Icons.svg";
+
+import image2 from "../../images/sections/messanger/Vector.svg";
+import image3 from "../../images/sections/messanger/Vector1.svg";
+import image4 from "../../images/sections/messanger/phone.svg";
 
 const MessengerComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,93 +13,101 @@ const MessengerComponent = () => {
     setIsOpen(!isOpen);
   };
 
+  const messengerApps = [
+    {
+      name: "Phone",
+      icon: <img src={image4} alt="phone" />,
+      color: "bg-emerald-500",
+      link: "tel:+",
+    },
+    {
+      name: "Messenger",
+      icon: <img src={image2} alt="phone" />,
+      color: "bg-blue-600",
+      link: "https://m.me/",
+    },
+    {
+      name: "WhatsApp",
+      icon: <img src={image1} alt="phone" />,
+      color: "bg-purple-600",
+      link: "https://wa.me/",
+    },
+    {
+      name: "Telegram",
+      icon: <img src={image3} alt="phone" />,
+      color: "bg-sky-500",
+      link: "https://t.me/",
+    },
+  ];
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <div
-        className={`bg-white rounded-full shadow-lg cursor-pointer ${
-          isOpen ? "bg-gray-800 text-white h-72" : "h-16"
-        }`}
-        onClick={toggleMessenger}>
-        {!isOpen ? (
-          <div className="p-4 flex items-center justify-center h-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
+      <div className="relative">
+        {/* Main toggle button */}
+        <div
+          className={` bg-transparent m-1 rounded-full border-[0.5px] w-[91px] h-[91px] flex justify-center items-center ${
+            isOpen ? "border-white" : "border-redCustom"
+          }`}>
+          <button
+            onClick={toggleMessenger}
+            className={`w-[67px] h-[67px] rounded-full flex items-center justify-center items-center transition-colors duration-200 ${
+              isOpen ? "bg-white" : "bg-red-600 pr-1 pt-1"
+            }`}>
+            {isOpen ? (
+              <svg
+                viewBox="0 0 24 24"
+                className="w-6 h-6 text-black"
+                stroke="currentColor"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          </div>
-        ) : (
-          <div className="p-4 grid grid-rows-4 gap-2 h-full overflow-y-auto">
-            <div className="bg-green-500 rounded-full p-2">
+                fill="none">
+                <path d="M18 6L6 18" />
+                <path d="M6 6l12 12" />
+              </svg>
+            ) : (
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                width="29"
+                height="29"
+                viewBox="0 0 29 29"
                 fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
+                xmlns="http://www.w3.org/2000/svg">
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M26.9702 2.02977C27.1839 2.24345 27.1839 2.5899 26.9702 2.80358L13.6786 16.0952C13.4649 16.3089 13.1185 16.3089 12.9048 16.0952C12.6911 15.8816 12.6911 15.5351 12.9048 15.3214L26.1964 2.02977C26.4101 1.81609 26.7566 1.81609 26.9702 2.02977Z"
+                  fill="white"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M26.9703 2.02978C27.1189 2.17842 27.1692 2.39905 27.0998 2.59745L18.6415 26.7641C18.5674 26.9759 18.3715 27.1209 18.1473 27.1301C17.9232 27.1392 17.7161 27.0106 17.625 26.8056L12.8771 16.1229L2.19445 11.375C1.98944 11.2839 1.86082 11.0769 1.86996 10.8527C1.87911 10.6286 2.02417 10.4327 2.23592 10.3586L26.4026 1.90024C26.601 1.8308 26.8216 1.88115 26.9703 2.02978ZM3.9001 10.9355L13.5139 15.2084C13.6377 15.2634 13.7367 15.3623 13.7917 15.4861L18.0645 25.0999L25.6915 3.30856L3.9001 10.9355Z"
+                  fill="white"
                 />
               </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Messenger apps */}
+        <div
+          className={`absolute bottom-full right-5 mb-4 space-y-4 transition-all duration-300 ${
+            isOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-4 pointer-events-none"
+          }`}>
+          {messengerApps.map((app, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <a
+                href={app.link}
+                className={`w-[58px] h-[58px] ${app.color} rounded-full flex items-center justify-center text-white transition-transform hover:scale-110`}
+                target="_blank"
+                rel="noopener noreferrer">
+                {app.icon}
+              </a>
             </div>
-            <div className="bg-blue-500 rounded-full p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-            </div>
-            <div className="bg-purple-500 rounded-full p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                />
-              </svg>
-            </div>
-            <div className="bg-red-500 rounded-full p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );

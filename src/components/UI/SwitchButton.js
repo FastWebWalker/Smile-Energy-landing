@@ -6,10 +6,8 @@ const LanguageToggle = () => {
 
   const changeLanguage = async (lng) => {
     i18n.changeLanguage(lng);
-    console.log(i18n.language);
+    localStorage.setItem("i18nextLng", lng); // Save to localStorage
   };
-
-  console.log(i18n.language);
 
   return (
     <div className="w-[109px] h-[40px] inline-flex items-center p-1 rounded-[30px] bg-transparent relative border border-[0.3px] border-[rgba(255,255,255,0.4)]">

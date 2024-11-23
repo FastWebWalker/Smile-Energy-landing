@@ -41,21 +41,31 @@ export default function FounderSection() {
                         {t("founderSection.labsTitle")}
                       </h4>
                       <div className="grid grid-cols-3 gap-x-[68px] gap-y-[12px]">
-                        <div className="w-[169px] h-[80px] flex justify-center items-center ">
+                        <a
+                          href="https://contour-lab.com/"
+                          className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300">
                           <img src={group1} alt="logo-photo" />
-                        </div>
-                        <div className="w-[169px] h-[80px] flex justify-center items-center">
+                        </a>
+                        <a
+                          href="https://senergy-dental.com/"
+                          className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300">
                           <img src={group2} alt="logo-photo" />
-                        </div>
-                        <div className="w-[169px] h-[80px] flex justify-center items-center">
+                        </a>
+                        <a
+                          href="https://cadcam.energy/"
+                          className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300">
                           <img src={group3} alt="logo-photo" />
-                        </div>
-                        <div className="w-[169px] h-[80px] flex justify-center items-center">
+                        </a>
+                        <a
+                          href="https://www.setrade.com.ua/"
+                          className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300">
                           <img src={group4} alt="logo-photo" />
-                        </div>
-                        <div className="w-[169px] h-[80px] flex justify-center items-center">
+                        </a>
+                        <a
+                          href="https://dentalcad.online/"
+                          className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300">
                           <img src={group5} alt="logo-photo" />
-                        </div>
+                        </a>
                       </div>
                     </div>
                   )}
@@ -71,17 +81,12 @@ export default function FounderSection() {
               <div className="flex flex-col justify-between gap-[97px] items-center">
                 <div className="flex flex-col">
                   <h3 className="font-normal text-[44px] mb-1">
-                    Serhiy Hrybovskiy
+                    {t("founderSection.name")}
                   </h3>
-                  <p className="text-[20px] mb-8">Founder of the company</p>
-                  <Description>
-                    Each technician has an original approach to work that is
-                    unique to him or her. This reflects the love for their work
-                    in working on customer orders. At all stages of cooperation
-                    with the dentist, clients receive full information support
-                    of the highest class. We treat many patients throughout
-                    their lives. We advise, recommend, consult and help.
-                  </Description>
+                  <p className="text-[20px] mb-8">
+                    {t("founderSection.title")}
+                  </p>
+                  <Description>{t("founderSection.description")}</Description>
                 </div>
               </div>
               <div>
@@ -96,24 +101,34 @@ export default function FounderSection() {
         <div className=" bg-[#191919] md:py-[60px] py-[30px]">
           <ContentContainer className="flex flex-col items-start justify-start gap-[32px]">
             <h4 className="text-[32px] text-white lg:pb-[40px] font-normal ">
-              Our laboratories:
+              {t("founderSection.labsTitle")}
             </h4>
-            <div className="flex md:justify-between justify-start w-[100%]  gap-x-[45px] gap-y-[12px] md:flex-nowrap flex-wrap">
-              <div className="lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center ">
+            <div className="flex md:justify-between justify-start w-[100%] gap-x-[45px] gap-y-[12px] md:flex-nowrap flex-wrap z-20">
+              <a
+                href="https://contour-lab.com/"
+                className="cursor-pointer lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center hover:scale-110 transition-all duration-300">
                 <img src={group1} alt="logo-photo" />
-              </div>
-              <div className="lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center">
+              </a>
+              <a
+                href="https://senergy-dental.com/"
+                className="cursor-pointer lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center hover:scale-110 transition-all duration-300">
                 <img src={group2} alt="logo-photo" />
-              </div>
-              <div className="lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center">
+              </a>
+              <a
+                href="https://cadcam.energy/"
+                className="cursor-pointer lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center hover:scale-110 transition-all duration-300">
                 <img src={group3} alt="logo-photo" />
-              </div>
-              <div className="lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center">
+              </a>
+              <a
+                href="https://www.setrade.com.ua/"
+                className="cursor-pointer lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center hover:scale-110 transition-all duration-300">
                 <img src={group4} alt="logo-photo" />
-              </div>
-              <div className="lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center">
+              </a>
+              <a
+                href="https://dentalcad.online/"
+                className="cursor-pointer lg:w-[136px] lg:h-[65px] w-[106px] h-[50px] flex justify-center items-center hover:scale-110 transition-all duration-300">
                 <img src={group5} alt="logo-photo" />
-              </div>
+              </a>
             </div>
           </ContentContainer>
         </div>

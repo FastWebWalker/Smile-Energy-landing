@@ -1,9 +1,10 @@
-import Header from "../components/sections/header/Header"
+import Header from "../components/sections/header/Header";
 import { I18nextProvider } from "react-i18next";
 import Footer from "../components/sections/footer/Footer";
 import i18n from "../i18n/i18n";
 import { Outlet } from "react-router-dom";
 import MessengerComponent from "../components/UI/Messanger";
+import Cookies from "./sections/cookies/Cookies";
 export default function Layout() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Layout() {
         <Outlet />
         <Footer />
         <MessengerComponent />
+        <Cookies />
       </I18nextProvider>
     </>
   );
