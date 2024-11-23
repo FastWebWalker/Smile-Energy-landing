@@ -237,12 +237,18 @@ export default function ReviewsSection() {
 
             {/* Custom Navigation Buttons */}
             <div className="relative flex gap-[6px] justify-center items-center">
-              <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowLeft} alt="arrow-left" />
-              </button>
-              <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
                 <img src={arrowRight} alt="arrow-right" />
-              </button>
+              </motion.button>
             </div>
           </div>
 

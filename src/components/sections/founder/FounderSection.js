@@ -201,6 +201,7 @@ export default function FounderSection() {
     visible: (custom) => ({
       opacity: 1,
       scale: 1,
+
       transition: {
         duration: 0.4,
         delay: custom * 0.1,
@@ -264,7 +265,16 @@ export default function FounderSection() {
                             href={item.href}
                             className="w-[169px] h-[80px] flex justify-center items-center cursor-pointer hover:scale-110 transition-all duration-300"
                             variants={logoVariants}
-                            custom={index}>
+                            custom={index}
+                            whileHover={{
+                              scale: 1.1, // Slightly enlarge the logo on hover
+                              duration: 0.1,
+                              transition: {
+                                type: "tween", // Use tween instead of spring for a smooth, non-bouncy effect
+                                ease: "easeOut", // Smooth out the animation at the end
+                                duration: 0.3, // Set the duration to 0.3 seconds
+                              },
+                            }}>
                             <img src={item.img} alt="logo-photo" />
                           </motion.a>
                         ))}

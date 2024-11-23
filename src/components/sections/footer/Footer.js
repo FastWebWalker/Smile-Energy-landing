@@ -1,3 +1,4 @@
+// import { motion } from "framer-motion";
 // import Button from "../../UI/Button";
 // import ContentContainer from "../../UI/ContentContainer";
 // import Description from "../../UI/Description";
@@ -8,11 +9,11 @@
 // import telegram from "../../../images/sections/footer/telegram.svg";
 // import FormModal from "../hero/FormModal";
 // import { useState } from "react";
-// import { useTranslation } from "react-i18next"; // Import useTranslation hook
+// import { useTranslation } from "react-i18next";
 
 // export default function Footer() {
 //   const [formIsOpen, setFormIsOpen] = useState(false);
-//   const { t } = useTranslation(); // Use the translation function
+//   const { t } = useTranslation();
 
 //   const handleSubmit = () => {
 //     setFormIsOpen(true);
@@ -23,12 +24,24 @@
 //   };
 
 //   return (
-//     <footer className="pt-[56px] pb-[20px] bg-[#191919]">
+//     <motion.footer
+//       initial={{ opacity: 0, y: 20 }}
+//       animate={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.6 }}
+//       className="pt-[56px] pb-[20px] bg-[#191919]">
 //       <ContentContainer>
 //         <div className="flex flex-col justify-between">
-//           <div className="flex md:flex-nowrap flex-wrap justify-between pb-[72px]">
+//           <motion.div
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6, delay: 0.2 }}
+//             className="flex md:flex-nowrap flex-wrap justify-between pb-[72px]">
 //             <div className="flex flex-col justify-center items-start gap-[32px]">
-//               <Logo />
+//               <motion.div
+//                 whileHover={{ scale: 1.05 }}
+//                 transition={{ duration: 0.2 }}>
+//                 <Logo />
+//               </motion.div>
 //               <Description className="text-[20px] text-white mb-0 sm:mb-[20px]">
 //                 {t("footerSection.description.line1")}
 //                 <br />
@@ -40,17 +53,23 @@
 //                 {t("footerSection.contactUs")}
 //               </Description>
 //               <div className="flex-grow-0">
-//                 <button onClick={handleSubmit}>
+//                 <motion.button
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   onClick={handleSubmit}>
 //                   <Button variant="white-white">
 //                     {t("footerSection.orderCallButton")}
 //                   </Button>
-//                 </button>
+//                 </motion.button>
 //               </div>
 //             </div>
-//           </div>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white non-italic">
+//           </motion.div>
+//           <motion.div
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6, delay: 0.4 }}
+//             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white non-italic">
 //             <div>
-
 //               <div>
 //                 <div className=" mb-3">
 //                   {t("footerSection.address.title")}:
@@ -81,34 +100,34 @@
 //                 {t("footerSection.page.title")}
 //               </h4>
 //               <ul className="space-y-2">
-//                 <li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.page.links.aboutUs")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.page.links.services")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.page.links.products")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.page.links.reviews")}
 //                   </a>
-//                 </li>
+//                 </motion.li>
 //               </ul>
 //             </div>
 //             <div>
@@ -116,34 +135,34 @@
 //                 {t("footerSection.ourLaboratories.title")}
 //               </h4>
 //               <ul className="space-y-2">
-//                 <li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.ourLaboratories.labs.cadCamEnergy")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.ourLaboratories.labs.contour")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.ourLaboratories.labs.senergy")}
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ x: 5 }}>
 //                   <a
 //                     href="#"
 //                     className="opacity-50 hover:opacity-100 transition-all">
 //                     {t("footerSection.ourLaboratories.labs.cadStudio")}
 //                   </a>
-//                 </li>
+//                 </motion.li>
 //               </ul>
 //             </div>
 //             <div>
@@ -151,7 +170,7 @@
 //                 {t("footerSection.media.title")}
 //               </h4>
 //               <ul className="flex space-x-[22px]">
-//                 <li>
+//                 <motion.li whileHover={{ scale: 1.2, rotate: 5 }}>
 //                   <a
 //                     href="https://www.instagram.com/contour_lab/?igshid=YmMyMTA2M2Y%3D"
 //                     target="_no_blank"
@@ -161,8 +180,8 @@
 //                       alt={t("footerSection.media.socials.instagram")}
 //                     />
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ scale: 1.2, rotate: 5 }}>
 //                   <a
 //                     href="https://www.facebook.com/contour.laboratory/?_rdr"
 //                     target="_no_blank"
@@ -172,8 +191,8 @@
 //                       alt={t("footerSection.media.socials.facebook")}
 //                     />
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ scale: 1.2, rotate: 5 }}>
 //                   <a
 //                     href="https://www.linkedin.com/company/smile-energy-group/posts/?feedView=all"
 //                     className="hover:text-white"
@@ -183,11 +202,10 @@
 //                       alt={t("footerSection.media.socials.linkedIn")}
 //                     />
 //                   </a>
-//                 </li>
-//                 <li>
+//                 </motion.li>
+//                 <motion.li whileHover={{ scale: 1.2, rotate: 5 }}>
 //                   <a
-//                     href="https://t.me/+hvMUwEQGYac2NTVi
-// "
+//                     href="https://t.me/+hvMUwEQGYac2NTVi"
 //                     target="_no_blank"
 //                     className="hover:text-white">
 //                     <img
@@ -195,19 +213,23 @@
 //                       alt={t("footerSection.media.socials.telegram")}
 //                     />
 //                   </a>
-//                 </li>
+//                 </motion.li>
 //               </ul>
 //             </div>
-//           </div>
+//           </motion.div>
 //         </div>
-//         <div className="mt-9 text-[12px] text-white opacity-[0.32] text-right">
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 0.32 }}
+//           transition={{ duration: 0.6, delay: 0.8 }}
+//           className="mt-9 text-[12px] text-white text-right">
 //           <p>&copy; {t("footerSection.copyright")}</p>
-//         </div>
+//         </motion.div>
 //       </ContentContainer>
 //       {formIsOpen && (
 //         <FormModal onSubmit={handleSubmit} onClose={handleClose} />
 //       )}
-//     </footer>
+//     </motion.footer>
 //   );
 // }
 
@@ -221,12 +243,16 @@ import facebook from "../../../images/sections/footer/facebook.svg";
 import linkedIn from "../../../images/sections/footer/linkedIn.svg";
 import telegram from "../../../images/sections/footer/telegram.svg";
 import FormModal from "../hero/FormModal";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const { t } = useTranslation();
+
+  // Create a ref for the footer element
+  const footerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleSubmit = () => {
     setFormIsOpen(true);
@@ -236,12 +262,37 @@ export default function Footer() {
     setFormIsOpen(false);
   };
 
+  // Set up the Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.1, // Trigger when 10% of the footer is in view
+      }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    // Clean up the observer on component unmount
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0.5, y: 0 }} // Fade in when the footer is in view
       transition={{ duration: 0.6 }}
-      className="pt-[56px] pb-[20px] bg-[#191919]">
+      className="pt-[56px] pb-[20px] bg-[#191919]"
+      ref={footerRef}>
       <ContentContainer>
         <div className="flex flex-col justify-between">
           <motion.div
@@ -431,13 +482,9 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.32 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-9 text-[12px] text-white text-right">
+        <div className="mt-9 text-[12px] text-white opacity-[0.32] text-right">
           <p>&copy; {t("footerSection.copyright")}</p>
-        </motion.div>
+        </div>
       </ContentContainer>
       {formIsOpen && (
         <FormModal onSubmit={handleSubmit} onClose={handleClose} />

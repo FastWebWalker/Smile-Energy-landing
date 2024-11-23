@@ -79,7 +79,13 @@ export default function StoreSection() {
                 to={"https://www.setrade.com.ua/"}
                 target="_blank"
                 rel="noopener noreferrer">
-                <Button variant="red-white">{t("storeSection.button")}</Button>
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <Button variant="red-white">
+                    {t("storeSection.button")}
+                  </Button>
+                </motion.button>
               </Link>
             </div>
           </motion.div>

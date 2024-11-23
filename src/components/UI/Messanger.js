@@ -164,15 +164,15 @@ const MessengerComponent = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}>
         {/* Main toggle button */}
-        <motion.div
-          className={`bg-transparent m-1 rounded-full border-[0.5px] w-[91px] h-[91px] flex justify-center items-center ${
+        <motion.button
+          onClick={toggleMessenger}
+          className={`bg-transparent m-1 rounded-full border-[0.5px] lg:w-[91px] lg:h-[91px] w-[71px] h-[71px] flex justify-center items-center ${
             isOpen ? "border-white" : "border-redCustom"
           }`}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}>
           <button
-            onClick={toggleMessenger}
-            className={`w-[67px] h-[67px] rounded-full flex items-center justify-center transition-colors duration-200 ${
+            className={`lg:w-[67px] lg:h-[67px] w-[52px] h-[52px] rounded-full flex items-center justify-center transition-colors duration-200 ${
               isOpen ? "bg-white" : "bg-red-600 pr-1 pt-1"
             }`}>
             {isOpen ? (
@@ -211,23 +211,27 @@ const MessengerComponent = () => {
               </motion.svg>
             )}
           </button>
-        </motion.div>
+        </motion.button>
 
         {/* Messenger apps */}
         <motion.div
-          className="absolute bottom-full right-5 mb-4 space-y-4"
+          className="absolute bottom-full lg:right-5 right-[14px] mb-4 space-y-4"
           initial={{ opacity: 0, y: 20 }}
-          animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={
+            isOpen
+              ? { opacity: 1, y: 0 }
+              : { opacity: 0, y: 20, display: "none" }
+          }
           transition={{ duration: 0.3 }}>
           {messengerApps.map((app, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2"
+              className={` items-center gap-2`}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}>
               <a
                 href={app.link}
-                className={`w-[58px] h-[58px] ${app.color} rounded-full flex items-center justify-center text-white transition-transform`}
+                className={`lg:w-[58px] lg:h-[58px] w-[48px] h-[48px] ${app.color} rounded-full flex items-center justify-center text-white transition-transform`}
                 target="_blank"
                 rel="noopener noreferrer">
                 {app.icon}

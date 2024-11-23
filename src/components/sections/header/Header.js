@@ -214,7 +214,7 @@ const Header = () => {
       }`}
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}>
+      transition={{ duration: 0.7 }}>
       <ContentContainer>
         <div className="flex items-center justify-between h-16">
           <Logo />
@@ -244,7 +244,7 @@ const Header = () => {
             <SwitchButton />
             <motion.button
               onClick={handleSubmit}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}>
               <Button className="uppercase">
                 {t("header.buttons.getInTouch")}
@@ -277,6 +277,10 @@ const Header = () => {
                     />
                     <motion.span
                       className="h-[1.5px] w-[32px] bg-white block"
+                      layout
+                    />
+                    <motion.span
+                      className="h-[1.5px] w-6 bg-white block ml-[8px]"
                       layout
                     />
                   </motion.div>

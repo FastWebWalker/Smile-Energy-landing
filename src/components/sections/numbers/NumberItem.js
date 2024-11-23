@@ -77,14 +77,17 @@ export default function NumberItem({ title, description, className }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}>
         {isVisible ? (
-          <SlotCounter
-            value={title} // Final number
-            startValue={title} // Starting value
-            duration={1.5} // Animation duration in seconds
-            animateOnVisible
-            containerClassName="inline-flex justify-center"
-            charClassName="inline-block"
-          />
+          <div className="flex justify-center items-center">
+            <SlotCounter
+              value={title} // Final number
+              startValue={title} // Starting value
+              duration={1.5} // Animation duration in seconds
+              animateOnVisible
+              containerClassName="inline-flex justify-center"
+              charClassName="inline-block"
+            />
+            +
+          </div>
         ) : (
           0 // Fallback value before animation starts
         )}

@@ -204,9 +204,13 @@ export default function PopularSection() {
                         to={item.url}
                         target="_blank"
                         rel="noopener noreferrer">
-                        <Button variant="black-red">
-                          {t("popularSection.button")}
-                        </Button>
+                        <motion.button
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.95 }}>
+                          <Button variant="black-red">
+                            {t("popularSection.button")}
+                          </Button>
+                        </motion.button>
                       </Link>
                     </div>
                   </div>

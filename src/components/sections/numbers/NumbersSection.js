@@ -100,25 +100,25 @@ export default function NumbersSection() {
           className="flex justify-between items-start md:flex-nowrap flex-wrap gap-[34px]">
           <motion.div variants={itemVariants}>
             <NumberItem
-              title="80+"
+              title="80"
               description={`${t("numbersSection.experience")}`}
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <NumberItem
-              title="3500+"
+              title="3500"
               description={`${t("numbersSection.cases")}`}
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <NumberItem
-              title="60+"
+              title="60"
               description={`${t("numbersSection.partners")}`}
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <NumberItem
-              title="1500+"
+              title="1500"
               description={`${t("numbersSection.customers")}`}
             />
           </motion.div>

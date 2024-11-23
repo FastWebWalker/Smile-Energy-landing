@@ -171,18 +171,26 @@ const HeroSection = () => {
                 to={"https://www.setrade.com.ua/"}
                 target="_blank"
                 rel="noopener noreferrer">
-                <Button
-                  variant="red-white"
-                  withoutArrow={isMobileSmall}
-                  className="bg-redCustom hover:bg-white hover:border-white">
-                  {t("buttons.ourStore")}
-                </Button>
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <Button
+                    variant="red-white"
+                    withoutArrow={isMobileSmall}
+                    className="bg-redCustom hover:bg-white hover:border-white">
+                    {t("buttons.ourStore")}
+                  </Button>
+                </motion.button>
               </Link>
-              <button onClick={handleSubmit}>
+
+              <motion.button
+                onClick={handleSubmit}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}>
                 <Button withoutArrow={isMobileSmall} variant="white-white">
                   {t("buttons.orderCall")}
                 </Button>
-              </button>
+              </motion.button>
             </motion.div>
             <motion.div
               className="flex lg:justify-start lg:h-[42px] md:h-[50px] h-[42px] items-center gap-3 flex-wrap [@media(max-width:767px)]:mb-[48px]"

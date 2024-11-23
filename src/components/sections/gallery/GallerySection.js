@@ -230,7 +230,7 @@ import ImageModal from "./ImageModal";
 import "./arrow-icon-swiper.css";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, transform } from "framer-motion";
 import { useInView } from "framer-motion";
 
 import "swiper/css";
@@ -365,13 +365,23 @@ const GallerySection = () => {
             <motion.button
               key={logo.name}
               onClick={() => setCurrentCompany(logo.name)}
-              // variants={logoVariants}
               custom={index}
               whileHover="hover"
               whileTap="tap"
               initial="initial"
-              variants={buttonVariants}>
-              <img src={logo.image} alt={logo.name} />
+              variants={buttonVariants}
+              className={`relative ${
+                currentCompany === logo.name ? "border-left" : ""
+              }`}>
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className={`transition-all duration-500 ${
+                  currentCompany === logo.name
+                    ? "border-l-[0.5px] border-[#A40004] pl-1 border-opacity-50 h-full"
+                    : ""
+                }`}
+              />
             </motion.button>
           ))}
         </motion.div>
@@ -433,10 +443,10 @@ const GallerySection = () => {
             }>
             {!isMobile && (
               <motion.button
-                className="swiper-prev-gallery group absolute xl:left-[calc(25%-1.25%)] left-[3%] top-1/2 -translate-y-1/2 flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-black hover:bg-redCustom hover:text-white transition-colors duration-300 z-10"
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}>
+                className="swiper-prev-gallery group absolute xl:left-[calc(25%-1.25%)] left-[3%] top-[47%] flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-black hover:bg-redCustom hover:text-white transition-colors duration-300 z-10"
+                variants={buttonVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
                 <img
                   src={arrowLeft}
                   className="arrow-icon filter brightness-0 group-hover:brightness-100"
@@ -472,10 +482,10 @@ const GallerySection = () => {
             ))}
             {!isMobile && (
               <motion.button
-                className="swiper-next-gallery group absolute xl:right-[calc(25%-1.25%)] right-[3%] top-1/2 -translate-y-1/2 flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-white hover:bg-redCustom transition-colors duration-300 z-10"
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}>
+                className="swiper-next-gallery group absolute xl:right-[calc(25%-1.25%)] right-[3%] top-[47%]  flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-white hover:bg-redCustom transition-colors duration-300 z-10"
+                variants={buttonVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
                 <img
                   src={arrowRight}
                   className="arrow-icon filter brightness-0 group-hover:brightness-100"
