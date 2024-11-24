@@ -163,10 +163,10 @@ export default function FounderSection() {
   const contentRef = useRef(null);
   const labsRef = useRef(null);
   const isContentInView = useInView(contentRef, {
-    once: true,
+    once: false,
     margin: "-100px",
   });
-  const isLabsInView = useInView(labsRef, { once: true, margin: "-100px" });
+  const isLabsInView = useInView(labsRef, { once: false, margin: "-100px" });
 
   // Animation variants
   const headerVariants = {
@@ -214,7 +214,7 @@ export default function FounderSection() {
     <>
       {!isMobile ? (
         <BackgroundImageWrapper imageUrl={founder}>
-          <section className="py-[129px]">
+          <section className="py-[129px]" id="about-us">
             <ContentContainer>
               <div className="flex justify-end items-center text-white">
                 <div className="flex flex-col justify-between gap-[97px] items-center">
@@ -287,7 +287,7 @@ export default function FounderSection() {
           </section>
         </BackgroundImageWrapper>
       ) : (
-        <section className="bg-[#191919] pt-[30px]">
+        <section className="bg-[#191919] pt-[30px]" id="about-us">
           <ContentContainer>
             <motion.div
               ref={contentRef}

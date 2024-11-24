@@ -255,9 +255,12 @@ const GallerySection = () => {
   const headerRef = useRef(null);
   const logosRef = useRef(null);
 
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
-  const isLogosInView = useInView(logosRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
+  const isHeaderInView = useInView(headerRef, {
+    once: false,
+    margin: "-100px",
+  });
+  const isLogosInView = useInView(logosRef, { once: false, margin: "-100px" });
 
   const isMobile = useMediaQuery("(max-width:767px)");
 

@@ -54,14 +54,34 @@ import { useRef } from "react";
 export default function StoreSection() {
   const { t } = useTranslation();
   const ref = useRef(null); // Reference to the section
-  const isInView = useInView(ref, { once: true }); // Check if section is in view
+  const isInView = useInView(ref, { once: false, threshold: 0.7 }); // Check if section is in view
+
+  // Animation variants for spans
+  const spanVariantsX = {
+    hidden: { opacity: 0, scaleX: 0 },
+    visible: { opacity: 0.2, scaleX: 1, transition: { duration: 1.5 } },
+  };
+  // Animation variants for spans
+  const spanVariantsY = {
+    hidden: { opacity: 0, scaleY: 0 },
+    visible: { opacity: 0.2, scaleY: 1, transition: { duration: 1.5 } },
+  };
 
   return (
     <section
+      id="products"
       ref={ref} // Attach the ref to this section
       className="lg:pt-[90px] md:pt-[60px] pt-[30px] lg:pb-[49px] md:pb-[35px] pb-[] mb-[31px] bg-white relative">
-      <span className="absolute w-[0.5px] bg-redCustom h-[100%] top-0 left-[50%] opacity-[20%]"></span>
-      <span className="absolute w-[100%] bg-redCustom h-[0.5px] bottom-0 left-0 opacity-[20%]"></span>
+      <motion.span
+        className="absolute w-[0.5px] lg:bg-redCustom h-[100%] top-0 left-[50%] opacity-[20%]"
+        variants={spanVariantsY}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}></motion.span>
+      <motion.span
+        className="absolute w-[100%] lg:bg-redCustom h-[0.5px] bottom-0 left-0 opacity-[20%]"
+        variants={spanVariantsX}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}></motion.span>
       <ContentContainer>
         <div className="flex lg:flex-row flex-col justify-between items-center gap-2">
           {/* Text content */}

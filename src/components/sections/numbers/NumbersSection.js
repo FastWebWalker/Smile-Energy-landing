@@ -97,7 +97,7 @@ export default function NumbersSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-between items-start md:flex-nowrap flex-wrap gap-[34px]">
+          className="flex justify-center items-start md:flex-nowrap flex-wrap gap-[34px]">
           <motion.div variants={itemVariants}>
             <NumberItem
               title="80"
@@ -132,7 +132,7 @@ export default function NumbersSection() {
           whileInView="visible"
           viewport={{ once: true }}
           className="flex justify-between items-center md:flex-nowrap flex-wrap gap-[34px]">
-          <div className="flex justify-between items-center gap-[35px] w-[100%]">
+          <div className="flex justify-center items-center gap-[35px] w-[100%]">
             <motion.div variants={itemVariants}>
               <NumberItem
                 title="80"
@@ -148,7 +148,7 @@ export default function NumbersSection() {
               />
             </motion.div>
           </div>
-          <div className="flex justify-between items-center gap-[35px] w-[100%]">
+          <div className="flex justify-center items-center gap-[35px] w-[100%]">
             <motion.div variants={itemVariants}>
               <NumberItem
                 title="60"

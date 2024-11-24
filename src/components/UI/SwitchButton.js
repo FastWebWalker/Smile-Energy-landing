@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = async (lng) => {
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("i18nextLng", lng); // Save to localStorage
   };

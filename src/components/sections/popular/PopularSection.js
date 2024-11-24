@@ -114,7 +114,7 @@ import { useRef } from "react";
 export default function PopularSection() {
   const { t } = useTranslation();
   const ref = useRef(null); // Section reference for in-view detection
-  const isInView = useInView(ref, { once: true }); // Check if the section is visible
+  const isInView = useInView(ref, { once: false }); // Check if the section is visible
 
   const popular = [
     {

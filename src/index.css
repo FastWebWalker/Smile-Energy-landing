@@ -36,3 +36,16 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensure padding and borders are included in element's total width */
+}
+
+html,
+body,
+#root {
+  width: 100%; /* Ensure root and body elements take full width without causing overflow */
+  overflow-x: hidden; /* Make sure overflow is hidden globally */
+}

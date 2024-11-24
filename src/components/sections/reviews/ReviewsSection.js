@@ -1,4 +1,5 @@
-// import React from "react";
+// import { motion } from "framer-motion";
+// import { useInView } from "react-intersection-observer";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation, Pagination } from "swiper/modules";
 // import ContentContainer from "../../UI/ContentContainer";
@@ -49,22 +50,60 @@
 //     },
 //   ];
 
+//   // Animation variant for the section
+//   const sectionVariants = {
+//     hidden: { opacity: 0, y: 50 },
+//     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+//   };
+
+//   // Set up IntersectionObserver for the section
+//   const { ref, inView } = useInView({
+//     triggerOnce: false,
+//     threshold: 0.2,
+//   });
+
 //   return (
-//     <section className="lg:py-16 md:py-[30px] py-[20px] bg-[#111111]">
+//     <motion.section
+//     id="reviews"
+//       ref={ref} // Attach observer to the section
+//       className="lg:py-16 md:py-[30px] py-[20px] bg-[#111111]"
+//       variants={sectionVariants}
+//       initial="hidden"
+//       animate={inView ? "visible" : "hidden"} // Trigger animation based on visibility
+//     >
 //       <ContentContainer>
 //         <div className="relative">
 //           <div className="flex items-center justify-between lg:mb-12 md:mb-[40px] mb-[32px] flex-wrap gap-[24px]">
-//             <Title className="text-white">{t("reviewsSection.title")}</Title>
+//             {/* Title Animation */}
+//             <motion.div
+//               className="text-white"
+//               initial={{ opacity: 0, x: -50 }}
+//               animate={
+//                 inView
+//                   ? { opacity: 1, x: 0, transition: { duration: 0.6 } }
+//                   : { opacity: 0, x: -50 }
+//               }>
+//               <Title>{t("reviewsSection.title")}</Title>
+//             </motion.div>
+
+//             {/* Custom Navigation Buttons */}
 //             <div className="relative flex gap-[6px] justify-center items-center">
-//               <button className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+//               <motion.button
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="cursor-pointer swiper-prev flex items-center justify-center w-20 h-10 rounded-[30px] border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
 //                 <img src={arrowLeft} alt="arrow-left" />
-//               </button>
-//               <button className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
+//               </motion.button>
+//               <motion.button
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="swiper-next flex items-center justify-center w-20 h-10 rounded-[30px] cursor-pointer border border-[rgba(255,255,255,0.4)] text-white hover:bg-redCustom hover:border-redCustom transition-colors duration-300">
 //                 <img src={arrowRight} alt="arrow-right" />
-//               </button>
+//               </motion.button>
 //             </div>
 //           </div>
 
+//           {/* Swiper Component */}
 //           <Swiper
 //             modules={[Navigation, Pagination]}
 //             spaceBetween={72}
@@ -96,11 +135,11 @@
 //                   </div>
 
 //                   <div className="flex flex-col justify-between">
-//                     <p className="flex-1 text-white leading-tight">
+//                     <p className="flex-1 text-white leading-tight mb-[26px]">
 //                       “{review.quote}”
 //                     </p>
 //                     <div>
-//                       <h3 className="flex-1 text-white text-[26px] font-normal">
+//                       <h3 className="flex-1 text-white text-[26px] font-normal ">
 //                         {review.name}
 //                       </h3>
 //                       <p className="text-white text-[20px]">
@@ -118,6 +157,7 @@
 //         </div>
 //       </ContentContainer>
 
+//       {/* Custom Styles */}
 //       <style jsx global>{`
 //         .swiper-button-next,
 //         .swiper-button-prev {
@@ -144,7 +184,7 @@
 //           background: #a40004;
 //         }
 //       `}</style>
-//     </section>
+//     </motion.section>
 //   );
 // }
 
@@ -200,35 +240,42 @@ export default function ReviewsSection() {
     },
   ];
 
-  // Animation variant for the section
+  // Animation variant for the section (triggers only once)
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  // Set up IntersectionObserver for the section
-  const { ref, inView } = useInView({
+  // IntersectionObserver for the section (triggerOnce: true)
+  const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  // IntersectionObserver for repeated animations (e.g., title, buttons)
+  const { ref: contentRef, inView: contentInView } = useInView({
+    triggerOnce: false,
     threshold: 0.2,
   });
 
   return (
     <motion.section
-      ref={ref} // Attach observer to the section
+      id="reviews"
+      ref={sectionRef} // Attach observer to the section
       className="lg:py-16 md:py-[30px] py-[20px] bg-[#111111]"
       variants={sectionVariants}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"} // Trigger animation based on visibility
+      animate={sectionInView ? "visible" : "hidden"} // Trigger animation only once
     >
       <ContentContainer>
-        <div className="relative">
+        <div className="relative" ref={contentRef}>
           <div className="flex items-center justify-between lg:mb-12 md:mb-[40px] mb-[32px] flex-wrap gap-[24px]">
             {/* Title Animation */}
             <motion.div
               className="text-white"
               initial={{ opacity: 0, x: -50 }}
               animate={
-                inView
+                contentInView
                   ? { opacity: 1, x: 0, transition: { duration: 0.6 } }
                   : { opacity: 0, x: -50 }
               }>
@@ -284,11 +331,11 @@ export default function ReviewsSection() {
                   </div>
 
                   <div className="flex flex-col justify-between">
-                    <p className="flex-1 text-white leading-tight">
+                    <p className="flex-1 text-white leading-tight mb-[26px]">
                       “{review.quote}”
                     </p>
                     <div>
-                      <h3 className="flex-1 text-white text-[26px] font-normal">
+                      <h3 className="flex-1 text-white text-[26px] font-normal ">
                         {review.name}
                       </h3>
                       <p className="text-white text-[20px]">
