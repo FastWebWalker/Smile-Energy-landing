@@ -49,3 +49,4 @@ body,
   width: 100%; /* Ensure root and body elements take full width without causing overflow */
   overflow-x: hidden; /* Make sure overflow is hidden globally */
 }
+

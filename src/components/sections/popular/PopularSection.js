@@ -168,7 +168,7 @@ export default function PopularSection() {
             pagination={{
               clickable: true,
               el: ".swiper-custom-pagination",
-              bulletClass: "swiper-custom-bullet",
+              bulletClass: "swiper-custom-bullet-products",
               bulletActiveClass: "swiper-custom-bullet-active",
             }}
             loop={false}

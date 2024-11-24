@@ -6,6 +6,8 @@ import SwitchButton from "../../UI/SwitchButton";
 import Button from "../../UI/Button";
 import { useTranslation } from "react-i18next";
 import FormModal from "../hero/FormModal";
+import BurgerButton from "./BurgerButton";
+import { useCallback } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +40,9 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
 
   // Navigation items with their corresponding section IDs
   const navItems = [
@@ -109,13 +113,12 @@ const Header = () => {
             </motion.button>
           </div>
 
-          <motion.button
+          {/* <motion.button
             className="[@media(min-width:960px)]:hidden z-50 w-10 h-10 flex items-center justify-center focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             whileHover={{ rotate: 10 }}
             whileTap={{ scale: 0.95 }}>
-            {/* Hamburger button content remains the same */}
             <div className="relative w-6 h-6">
               <AnimatePresence>
                 {!isMenuOpen ? (
@@ -161,7 +164,8 @@ const Header = () => {
                 )}
               </AnimatePresence>
             </div>
-          </motion.button>
+          </motion.button> */}
+          <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </div>
 
         {/* Mobile Navigation */}

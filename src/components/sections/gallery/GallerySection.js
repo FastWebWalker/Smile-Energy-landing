@@ -256,10 +256,6 @@ const GallerySection = () => {
   const logosRef = useRef(null);
 
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-  const isHeaderInView = useInView(headerRef, {
-    once: false,
-    margin: "-100px",
-  });
   const isLogosInView = useInView(logosRef, { once: false, margin: "-100px" });
 
   const isMobile = useMediaQuery("(max-width:767px)");
@@ -280,19 +276,6 @@ const GallerySection = () => {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  };
-
-  const logoVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (custom) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        delay: custom * 0.1,
-        ease: "easeOut",
-      },
-    }),
   };
 
   const buttonVariants = {
@@ -373,7 +356,7 @@ const GallerySection = () => {
               whileTap="tap"
               initial="initial"
               variants={buttonVariants}
-              className={`relative ${
+              className={`relative [@media(max-width:430px)]:w-[125px] [@media(max-width:430px)]:h-[60px] ${
                 currentCompany === logo.name ? "border-left" : ""
               }`}>
               <img

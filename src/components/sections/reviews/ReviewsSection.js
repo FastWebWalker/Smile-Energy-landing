@@ -313,7 +313,7 @@ export default function ReviewsSection() {
             pagination={{
               clickable: true,
               el: ".swiper-custom-pagination-reviews",
-              bulletClass: "swiper-custom-bullet",
+              bulletClass: "swiper-custom-bullet-reviews",
               bulletActiveClass: "swiper-custom-bullet-active",
             }}
             loop={false}
@@ -365,9 +365,21 @@ export default function ReviewsSection() {
         }
 
         /* Custom Pagination Styles */
-        .swiper-custom-bullet {
+        .swiper-custom-bullet-reviews {
           width: 37px;
-          height: 1px;
+          height: 1.5px;
+          margin: 0 4px;
+          display: inline-block;
+          opacity: 0.5;
+          background: #ffffff;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        /* Custom Pagination Styles */
+        .swiper-custom-bullet-products {
+          width: 37px;
+          height: 1.5px;
           margin: 0 4px;
           display: inline-block;
           opacity: 0.5;
@@ -377,6 +389,7 @@ export default function ReviewsSection() {
         }
 
         .swiper-custom-bullet-active {
+          opacity: 1;
           background: #a40004;
         }
       `}</style>
