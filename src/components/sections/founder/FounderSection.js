@@ -234,7 +234,10 @@ export default function FounderSection() {
                       {t("founderSection.title")}
                     </motion.p>
                     <motion.div variants={descriptionVariants}>
-                      <Description className="lg:max-w-[667px] max-w-[400px]">
+                      <Description
+                        className={`xl:max-w-[667px]  ${
+                          isDesktop ? "max-w-[550px]" : "md:max-w-[400px]"
+                        }`}>
                         {t("founderSection.description")}
                       </Description>
                     </motion.div>

@@ -121,57 +121,56 @@ export default function ChooseSection() {
       initial="hidden"
       animate={sectionInView ? "visible" : "hidden"} // Trigger animation based on visibility
     >
-      {/* Animated Spans */}
-      <motion.span
-        ref={ref}
-        className="absolute w-[0.5px] lg:bg-redCustom h-[100%] top-0 left-[50%]"
-        variants={spanVariantsY}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}></motion.span>
-      <motion.span
-        ref={ref}
-        className="absolute w-[50%] lg:bg-redCustom h-[0.5px] top-[55px] left-[50%]"
-        variants={spanVariantsX}
-        animate={inView ? "visible" : "hidden"}
-        initial="hidden"></motion.span>
-      <motion.span
-        ref={ref}
-        className="absolute w-[50%] lg:bg-redCustom h-[0.5px] bottom-[55px] left-0"
-        variants={spanVariantsX}
-        animate={inView ? "visible" : "hidden"}
-        initial="hidden"></motion.span>
+      <div ref={ref}>
+        {/* Animated Spans */}
+        <motion.span
+          className="absolute w-[0.5px] lg:bg-redCustom h-[100%] top-0 left-[50%]"
+          variants={spanVariantsY}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}></motion.span>
+        <motion.span
+          className="absolute w-[50%] lg:bg-redCustom h-[0.5px] top-[55px] left-[50%]"
+          variants={spanVariantsX}
+          animate={inView ? "visible" : "hidden"}
+          initial="hidden"></motion.span>
+        <motion.span
+          className="absolute w-[50%] lg:bg-redCustom h-[0.5px] bottom-[55px] left-0"
+          variants={spanVariantsX}
+          animate={inView ? "visible" : "hidden"}
+          initial="hidden"></motion.span>
 
-      <ContentContainer>
-        <Title className="lg:mb-[46px] md:mb-[40px] mb-[20px]">
-          {t("chooseSection.title")}
-        </Title>
-        <motion.div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[125px] lg:gap-y-[80px] md:gap-y-[84px] gap-y-[32px]">
-          <ChooseItem
-            image={one}
-            title={`${t("chooseSection.items.0.title")}`}
-            description={`${t("chooseSection.items.0.description")}`}
-            imageCorrection="lg:left-[1%]"
-          />
-          <ChooseItem
-            image={two}
-            title={`${t("chooseSection.items.1.title")}`}
-            description={`${t("chooseSection.items.1.description")}`}
-            imageCorrection="lg:-left-5"
-          />
-          <ChooseItem
-            image={three}
-            title={`${t("chooseSection.items.2.title")}`}
-            description={`${t("chooseSection.items.2.description")}`}
-            imageCorrection="lg:left-[-2%]"
-          />
-          <ChooseItem
-            image={four}
-            title={`${t("chooseSection.items.3.title")}`}
-            description={`${t("chooseSection.items.3.description")}`}
-            imageCorrection="lg:-left-10"
-          />
-        </motion.div>
-      </ContentContainer>
+        <ContentContainer>
+          <Title className="lg:mb-[46px] md:mb-[40px] mb-[20px]">
+            {t("chooseSection.title")}
+          </Title>
+          <motion.div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[125px] lg:gap-y-[80px] md:gap-y-[84px] gap-y-[32px]">
+            <ChooseItem
+              image={one}
+              title={`${t("chooseSection.items.0.title")}`}
+              description={`${t("chooseSection.items.0.description")}`}
+              imageCorrection="lg:left-[1%]"
+            />
+            <ChooseItem
+              image={two}
+              title={`${t("chooseSection.items.1.title")}`}
+              description={`${t("chooseSection.items.1.description")}`}
+              imageCorrection="lg:-left-5"
+            />
+            <ChooseItem
+              image={three}
+              title={`${t("chooseSection.items.2.title")}`}
+              description={`${t("chooseSection.items.2.description")}`}
+              imageCorrection="lg:left-[-2%]"
+            />
+            <ChooseItem
+              image={four}
+              title={`${t("chooseSection.items.3.title")}`}
+              description={`${t("chooseSection.items.3.description")}`}
+              imageCorrection="lg:-left-10"
+            />
+          </motion.div>
+        </ContentContainer>
+      </div>
     </motion.section>
   );
 }
