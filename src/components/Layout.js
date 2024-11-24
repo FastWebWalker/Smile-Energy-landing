@@ -6,11 +6,13 @@ import { Outlet } from "react-router-dom";
 import MessengerComponent from "../components/UI/Messanger";
 import Cookies from "./sections/cookies/Cookies";
 import CustomCursor from "./UI/CustomCursor";
+import { useMediaQuery } from "@mui/material";
 export default function Layout() {
+  const isMobile = useMediaQuery("(max-width: 767px");
   return (
     <>
       <I18nextProvider i18n={i18n}>
-        <CustomCursor />
+        {!isMobile && <CustomCursor />}
         <Header />
         <Outlet />
         <Footer />
