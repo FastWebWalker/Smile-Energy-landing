@@ -82,7 +82,7 @@ export default function ChooseItem({
 
   // Set up IntersectionObserver for each ChooseItem
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger the animation only once
+    triggerOnce: true, // Trigger the animation only once
     threshold: 0.2, // Trigger animation when 20% of the item is in view
   });
 

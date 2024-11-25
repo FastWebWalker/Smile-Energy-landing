@@ -1,4 +1,5 @@
 // import { motion } from "framer-motion";
+// import { useInView } from "react-intersection-observer";
 // import Description from "../../UI/Description";
 // import HeroTitle from "../../UI/HeroTitle";
 // import LShape from "../../UI/LShape";
@@ -11,6 +12,11 @@
 //   const isTablet = useMediaQuery("(min-width:625px) and (max-width:1023px)");
 //   const isMobile = useMediaQuery("(max-width:624px)");
 //   const { t } = useTranslation();
+
+//   const [ref, inView] = useInView({
+//     threshold: 0.1, // Trigger animation when 10% of the component is visible
+//     triggerOnce: true, // Animate only once
+//   });
 
 //   const containerVariants = {
 //     hidden: { opacity: 0 },
@@ -37,7 +43,7 @@
 //     return (
 //       <motion.div
 //         initial={{ opacity: 0, scale: 0.7, y: -20 }}
-//         animate={{ opacity: 1, scale: 1, y: 0 }}
+//         animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0 }}
 //         transition={{
 //           duration: 0.6,
 //           ease: [0.25, 0.1, 0.25, 1],
@@ -53,7 +59,7 @@
 //       <motion.div
 //         style={{ position: "absolute", bottom: 0, right: 200, zIndex: 0 }}
 //         initial={{ opacity: 0, scale: 0.7 }}
-//         animate={{ opacity: 1, scale: 1, right: 0 }}
+//         animate={inView ? { opacity: 1, scale: 1, right: 0 } : { opacity: 0 }}
 //         transition={{
 //           duration: 0.6,
 //           ease: [0.25, 0.1, 0.25, 1],
@@ -74,9 +80,10 @@
 
 //   return (
 //     <motion.div
+//       ref={ref}
 //       variants={containerVariants}
 //       initial="hidden"
-//       animate="visible"
+//       animate={inView ? "visible" : "hidden"}
 //       className="flex flex-col relative">
 //       <AnimatedLShapeReverse />
 //       <AnimatedLShape />
@@ -125,6 +132,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import Description from "../../UI/Description";
 import HeroTitle from "../../UI/HeroTitle";
 import LShape from "../../UI/LShape";
@@ -138,10 +146,18 @@ export default function MainTitleBlock() {
   const isMobile = useMediaQuery("(max-width:624px)");
   const { t } = useTranslation();
 
+  // State to track if animation has already been triggered
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   const [ref, inView] = useInView({
     threshold: 0.1, // Trigger animation when 10% of the component is visible
-    triggerOnce: false, // Animate only once
+    triggerOnce: true, // Animate only once
   });
+
+  // Update state when `inView` becomes true
+  if (inView && !hasAnimated) {
+    setHasAnimated(true);
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -168,7 +184,7 @@ export default function MainTitleBlock() {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.7, y: -20 }}
-        animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0 }}
+        animate={hasAnimated ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0 }}
         transition={{
           duration: 0.6,
           ease: [0.25, 0.1, 0.25, 1],
@@ -184,7 +200,9 @@ export default function MainTitleBlock() {
       <motion.div
         style={{ position: "absolute", bottom: 0, right: 200, zIndex: 0 }}
         initial={{ opacity: 0, scale: 0.7 }}
-        animate={inView ? { opacity: 1, scale: 1, right: 0 } : { opacity: 0 }}
+        animate={
+          hasAnimated ? { opacity: 1, scale: 1, right: 0 } : { opacity: 0 }
+        }
         transition={{
           duration: 0.6,
           ease: [0.25, 0.1, 0.25, 1],
@@ -208,7 +226,7 @@ export default function MainTitleBlock() {
       ref={ref}
       variants={containerVariants}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
+      animate={hasAnimated ? "visible" : "hidden"}
       className="flex flex-col relative">
       <AnimatedLShapeReverse />
       <AnimatedLShape />

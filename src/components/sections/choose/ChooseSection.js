@@ -104,7 +104,7 @@ export default function ChooseSection() {
 
   // Set up IntersectionObserver for the section
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger the animation only once
+    triggerOnce: true, // Trigger the animation only once
     threshold: 0.2, // Trigger animation when 20% of the section is in view
   });
   const { ref: sectionRef, inView: sectionInView } = useInView({

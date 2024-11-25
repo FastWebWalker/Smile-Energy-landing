@@ -45,7 +45,7 @@ export default function TrustedSection() {
 
   // Set up IntersectionObserver for the section
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger animation only once
+    triggerOnce: true, // Trigger animation only once
     threshold: 0.2, // Trigger animation when 20% of the section is in view
   });
 

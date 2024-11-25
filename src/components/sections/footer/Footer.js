@@ -36,32 +36,32 @@ export default function Footer() {
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        rootMargin: "0px",
-        threshold: 0.1,
-      }
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setIsVisible(entry.isIntersecting);
+  //     },
+  //     {
+  //       rootMargin: "0px",
+  //       threshold: 0.1,
+  //     }
+  //   );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
+  //   if (footerRef.current) {
+  //     observer.observe(footerRef.current);
+  //   }
 
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (footerRef.current) {
+  //       observer.unobserve(footerRef.current);
+  //     }
+  //   };
+  // }, []);
 
   return (
     <motion.footer
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isVisible ? 1 : 0.5, y: 0 }}
+      // initial={{ opacity: 1, y: 20 }}
+      // animate={{ opacity: isVisible ? 1 : 0.5, y: 0 }}
       transition={{ duration: 0.6 }}
       className="pt-[56px] pb-[20px] bg-[#191919]"
       ref={footerRef}>

@@ -259,7 +259,7 @@ const SmoothCounter = ({ value }) => {
 export default function NumberItem({ title, description, className }) {
   const { ref, inView } = useInView({
     threshold: 0.1, // Adjust threshold as needed
-    triggerOnce: false, // Trigger only once
+    triggerOnce: true, // Trigger only once
   });
 
   return (

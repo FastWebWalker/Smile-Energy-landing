@@ -163,10 +163,10 @@ export default function FounderSection() {
   const contentRef = useRef(null);
   const labsRef = useRef(null);
   const isContentInView = useInView(contentRef, {
-    once: false,
+    once: true,
     margin: "-100px",
   });
-  const isLabsInView = useInView(labsRef, { once: false, margin: "-100px" });
+  const isLabsInView = useInView(labsRef, { once: true, margin: "-100px" });
 
   // Animation variants
   const headerVariants = {

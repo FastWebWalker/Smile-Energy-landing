@@ -54,7 +54,7 @@ import { useRef } from "react";
 export default function StoreSection() {
   const { t } = useTranslation();
   const ref = useRef(null); // Reference to the section
-  const isInView = useInView(ref, { once: false, threshold: 0.7 }); // Check if section is in view
+  const isInView = useInView(ref, { once: true, threshold: 0.7 }); // Check if section is in view
 
   // Animation variants for spans
   const spanVariantsX = {

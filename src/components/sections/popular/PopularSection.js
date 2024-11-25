@@ -99,7 +99,7 @@ import ContentContainer from "../../UI/ContentContainer";
 import Description from "../../UI/Description";
 import Title from "../../UI/Title";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -114,7 +114,7 @@ import { useRef } from "react";
 export default function PopularSection() {
   const { t } = useTranslation();
   const ref = useRef(null); // Section reference for in-view detection
-  const isInView = useInView(ref, { once: false }); // Check if the section is visible
+  const isInView = useInView(ref, { once: true }); // Check if the section is visible
 
   const popular = [
     {
@@ -156,7 +156,7 @@ export default function PopularSection() {
           }
           transition={{ duration: 0.8, delay: 0.4 }}>
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={72}
             slidesPerView={1}
             navigation={{
@@ -164,6 +164,11 @@ export default function PopularSection() {
               prevEl: ".swiper-prev",
               enabled: true,
               hideOnClick: false,
+            }}
+            autoplay={{
+              delay: 2000, // No delay between transitions
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             pagination={{
               clickable: true,

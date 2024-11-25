@@ -255,8 +255,8 @@ const GallerySection = () => {
   const headerRef = useRef(null);
   const logosRef = useRef(null);
 
-  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-  const isLogosInView = useInView(logosRef, { once: false, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isLogosInView = useInView(logosRef, { once: true, margin: "-100px" });
 
   const isMobile = useMediaQuery("(max-width:767px)");
 
@@ -376,7 +376,7 @@ const GallerySection = () => {
       <div className="relative z-0">
         {isMobile && (
           <ContentContainer>
-            <div className="flex gap-[24px] mb-[16px]">
+            <div className="flex [@media(max-width:450px)]:justify-center justify-between gap-[24px] mb-[16px]">
               <motion.button
                 className="swiper-prev-gallery group flex items-center justify-center w-20 h-10 rounded-[30px] border border-redCustom text-black hover:bg-redCustom hover:text-white transition-colors duration-300 z-10"
                 whileHover="hover"
