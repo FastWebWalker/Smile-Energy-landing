@@ -74,103 +74,12 @@
 
 // export default CustomCursor;
 
-import React, { useEffect, useState } from "react";
-
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [clicked, setClicked] = useState(false);
-  const [hovered, setHovered] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseDown = () => setClicked(true);
-    const handleMouseUp = () => setClicked(false);
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleMouseEnter = () => setHovered(true);
-    const handleMouseLeave = () => setHovered(false);
-
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-      button.addEventListener("mouseenter", handleMouseEnter);
-      button.addEventListener("mouseleave", handleMouseLeave);
-    });
-
-    return () => {
-      buttons.forEach((button) => {
-        button.removeEventListener("mouseenter", handleMouseEnter);
-        button.removeEventListener("mouseleave", handleMouseLeave);
-      });
-    };
-  }, []);
-
-  return (
-    <>
-      <div
-        style={{
-          position: "fixed",
-          top: `${position.y}px`,
-          left: `${position.x}px`,
-          width: clicked ? "40px" : hovered ? "30px" : "20px",
-          height: clicked ? "40px" : hovered ? "30px" : "20px",
-          backgroundColor: clicked
-            ? "rgba(255, 69, 58, 0.8)"
-            : hovered
-            ? "rgba(0, 122, 255, 0.8)"
-            : "rgba(255, 255, 255, 0.8)",
-          border: "2px solid rgba(0, 0, 0, 0.2)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-          transform: "translate(-50%, -50%)",
-          transition:
-            "width 0.2s, height 0.2s, background-color 0.2s, transform 0.1s",
-          zIndex: 1000,
-          boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-          mixBlendMode: "difference",
-          animation: clicked ? "pulse 0.5s ease-out" : "none",
-        }}
-      />
-      {/* Hide default cursor */}
-      <style>
-        {`
-          * {
-            cursor: none !important;
-          }
-        `}
-      </style>
-    </>
-  );
-};
-
-export default CustomCursor;
-
 // import React, { useEffect, useState } from "react";
 
 // const CustomCursor = () => {
 //   const [position, setPosition] = useState({ x: 0, y: 0 });
 //   const [clicked, setClicked] = useState(false);
 //   const [hovered, setHovered] = useState(false);
-
-//   // Colors from the dental health theme
-//   const colors = {
-//     red: "#A40004",
-//     grey: "#808080",
-//     white: "#FFFFFF",
-//   };
 
 //   useEffect(() => {
 //     const handleMouseMove = (e) => {
@@ -195,66 +104,46 @@ export default CustomCursor;
 //     const handleMouseEnter = () => setHovered(true);
 //     const handleMouseLeave = () => setHovered(false);
 
-//     // Adding hover effect for interactive elements
-//     const interactiveElements = document.querySelectorAll(
-//       "button, a, input, select, textarea, [role='button']"
-//     );
-
-//     interactiveElements.forEach((element) => {
-//       element.addEventListener("mouseenter", handleMouseEnter);
-//       element.addEventListener("mouseleave", handleMouseLeave);
+//     const buttons = document.querySelectorAll("button");
+//     buttons.forEach((button) => {
+//       button.addEventListener("mouseenter", handleMouseEnter);
+//       button.addEventListener("mouseleave", handleMouseLeave);
 //     });
 
 //     return () => {
-//       interactiveElements.forEach((element) => {
-//         element.removeEventListener("mouseenter", handleMouseEnter);
-//         element.removeEventListener("mouseleave", handleMouseLeave);
+//       buttons.forEach((button) => {
+//         button.removeEventListener("mouseenter", handleMouseEnter);
+//         button.removeEventListener("mouseleave", handleMouseLeave);
 //       });
 //     };
 //   }, []);
 
 //   return (
 //     <>
-//       {/* Main cursor */}
 //       <div
-//         className="pointer-events-none fixed z-50"
 //         style={{
+//           position: "fixed",
 //           top: `${position.y}px`,
 //           left: `${position.x}px`,
-//           width: clicked ? "40px" : hovered ? "35px" : "20px",
-//           height: clicked ? "40px" : hovered ? "35px" : "20px",
+//           width: clicked ? "40px" : hovered ? "30px" : "20px",
+//           height: clicked ? "40px" : hovered ? "30px" : "20px",
 //           backgroundColor: clicked
-//             ? colors.red
+//             ? "rgba(255, 69, 58, 0.8)"
 //             : hovered
-//             ? colors.grey
-//             : colors.white,
+//             ? "rgba(0, 122, 255, 0.8)"
+//             : "rgba(255, 255, 255, 0.8)",
+//           border: "2px solid rgba(0, 0, 0, 0.2)",
 //           borderRadius: "50%",
+//           pointerEvents: "none",
 //           transform: "translate(-50%, -50%)",
 //           transition:
-//             "width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out",
-//           opacity: 0.9,
-//           boxShadow: `0 0 10px ${colors.grey}40`,
-//           border: `2px solid ${colors.grey}`,
+//             "width 0.2s, height 0.2s, background-color 0.2s, transform 0.1s",
+//           zIndex: 1000,
+//           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+//           mixBlendMode: "difference",
+//           animation: clicked ? "pulse 0.5s ease-out" : "none",
 //         }}
 //       />
-
-//       {/* Secondary ring */}
-//       <div
-//         className="pointer-events-none fixed z-40"
-//         style={{
-//           top: `${position.y}px`,
-//           left: `${position.x}px`,
-//           width: clicked ? "50px" : hovered ? "45px" : "30px",
-//           height: clicked ? "50px" : hovered ? "45px" : "30px",
-//           border: `2px solid ${colors.red}`,
-//           borderRadius: "50%",
-//           transform: "translate(-50%, -50%)",
-//           transition:
-//             "width 0.2s ease-out, height 0.2s ease-out, opacity 0.2s ease-out",
-//           opacity: clicked ? 0.8 : hovered ? 0.6 : 0.4,
-//         }}
-//       />
-
 //       {/* Hide default cursor */}
 //       <style>
 //         {`
@@ -268,6 +157,117 @@ export default CustomCursor;
 // };
 
 // export default CustomCursor;
+
+import React, { useEffect, useState } from "react";
+
+const CustomCursor = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [clicked, setClicked] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  // Colors from the dental health theme
+  const colors = {
+    red: "#A40004",
+    grey: "#808080",
+    white: "#FFFFFF",
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseDown = () => setClicked(true);
+    const handleMouseUp = () => setClicked(false);
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleMouseEnter = () => setHovered(true);
+    const handleMouseLeave = () => setHovered(false);
+
+    // Adding hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll(
+      "button, a, input, select, textarea, [role='button']"
+    );
+
+    interactiveElements.forEach((element) => {
+      element.addEventListener("mouseenter", handleMouseEnter);
+      element.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      interactiveElements.forEach((element) => {
+        element.removeEventListener("mouseenter", handleMouseEnter);
+        element.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Main cursor */}
+      <div
+        className="pointer-events-none fixed z-50"
+        style={{
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+          width: clicked ? "40px" : hovered ? "35px" : "20px",
+          height: clicked ? "40px" : hovered ? "35px" : "20px",
+          backgroundColor: clicked
+            ? colors.red
+            : hovered
+            ? colors.grey
+            : colors.white,
+          borderRadius: "50%",
+          transform: "translate(-50%, -50%)",
+          transition:
+            "width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out",
+          opacity: 0.9,
+          boxShadow: `0 0 10px ${colors.grey}40`,
+          border: `2px solid ${colors.grey}`,
+        }}
+      />
+
+      {/* Secondary ring */}
+      <div
+        className="pointer-events-none fixed z-40"
+        style={{
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+          width: clicked ? "50px" : hovered ? "45px" : "30px",
+          height: clicked ? "50px" : hovered ? "45px" : "30px",
+          border: `2px solid ${colors.red}`,
+          borderRadius: "50%",
+          transform: "translate(-50%, -50%)",
+          transition:
+            "width 0.2s ease-out, height 0.2s ease-out, opacity 0.2s ease-out",
+          opacity: clicked ? 0.8 : hovered ? 0.6 : 0.4,
+        }}
+      />
+
+      {/* Hide default cursor */}
+      <style>
+        {`
+          * {
+            cursor: none !important;
+          }
+        `}
+      </style>
+    </>
+  );
+};
+
+export default CustomCursor;
 
 // import React, { useEffect, useState } from "react";
 
