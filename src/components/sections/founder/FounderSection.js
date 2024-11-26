@@ -333,7 +333,7 @@ export default function FounderSection() {
               className="text-[32px] text-white lg:pb-[40px] font-normal">
               {t("founderSection.labsTitle")}
             </motion.h4>
-            <div className="flex md:justify-between justify-start w-[100%] gap-x-[45px] gap-y-[12px] md:flex-nowrap flex-wrap z-0">
+            <div className="flex md:justify-between justify-between w-[100%] gap-x-[45px] gap-y-[12px] md:flex-nowrap flex-wrap z-0">
               {[
                 { href: "https://contour-lab.com/", img: group1 },
                 { href: "https://senergy-dental.com/", img: group2 },
