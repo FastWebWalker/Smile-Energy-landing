@@ -210,7 +210,7 @@ const ImageModal = ({ images, initialIndex, onClose }) => {
         </button>
 
         {isMobile && (
-          <div className="h-[50vh] flex justify-center items-end gap-6 py-8 px-4">
+          <div className="h-[40vh] flex justify-center items-end gap-6 py-8 px-4">
             <button className="swiper-prev-gallery-modal w-full max-w-[80px] h-[40px] flex items-center justify-center rounded-[30px] border border-redCustom text-white bg-redCustom transition-colors duration-300">
               <img
                 src={arrowLeft}
@@ -263,16 +263,16 @@ const ImageModal = ({ images, initialIndex, onClose }) => {
           {images.map((image, index) => (
             <SwiperSlide key={index}>
               <div
-                className={`flex justify-center items-center ${
+                className={`flex justify-center items-center w-full ${
                   isMobile
-                    ? "h-[calc(50vh - 160px)] w-[100%] mx-auto"
-                    : "h-full w-full"
+                    ? "h-[calc(50vh - 160px)] [@media(max-width:500px)]:w-[100%] w-[70%] mx-auto"
+                    : "h-full"
                 }`}>
                 <Zoom>
                   <img
                     src={image}
                     alt={`Gallery image ${index + 1}`}
-                    className="sm:w-[70%] sm:h-auto sm:max-h-[70vh] w-[100%] h-[100%] object-contain object-center"
+                    className="md:w-[70%] lg:w-[100%] md:h-auto sm:max-h-[70vh] mx-auto w-[100%] h-[100%]  object-contain"
                   />
                 </Zoom>
               </div>
