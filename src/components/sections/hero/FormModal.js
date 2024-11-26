@@ -283,9 +283,27 @@ const FormModal = ({ onSubmit, onClose }) => {
   }, []);
 
   useEffect(() => {
+    // Save current scroll position
+    const scrollPosition = window.pageYOffset;
+
+    // Prevent scrolling on mount
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
+
+    // Cleanup function
     return () => {
-      document.body.style.overflow = "unset";
+      // Re-enable scrolling on unmount
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
     };
   }, []);
 
