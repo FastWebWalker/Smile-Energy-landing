@@ -187,13 +187,14 @@ export default function PopularSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}>
-                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[50%] flex justify-center items-center">
+                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[100%] flex justify-center items-center">
                     <motion.img
                       src={item.image}
                       alt={item.title}
                       initial={{ scale: 0.95 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
+                      className="sm:min-w-[100%] sm:min-h-[100%]"
                     />
                   </div>
 
