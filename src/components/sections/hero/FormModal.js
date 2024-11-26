@@ -323,7 +323,7 @@ const FormModal = ({ onSubmit, onClose }) => {
         </button>
         <motion.div
           ref={modalRef}
-          className="w-full max-w-[1200px] bg-white rounded-lg overflow-hidden relative max-h-[90vh]"
+          className="w-full max-w-[1200px] bg-white rounded-lg overflow-hidden relative sm:max-h-[90vh] max-h-[80vh]"
           variants={modalVariants}
           initial="hidden"
           animate="visible"
