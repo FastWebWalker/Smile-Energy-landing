@@ -1,100 +1,3 @@
-// import ContentContainer from "../../UI/ContentContainer";
-// import Description from "../../UI/Description";
-// import Title from "../../UI/Title";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Pagination } from "swiper/modules";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-// import image1 from "../../../images/sections/popular/image1.jpg";
-// import image2 from "../../../images/sections/popular/image2.jpg";
-// import Button from "../../UI/Button";
-// import { useTranslation } from "react-i18next";
-// import { Link } from "react-router-dom";
-
-// export default function PopularSection() {
-//   const { t } = useTranslation();
-//   const popular = [
-//     {
-//       image: image1,
-//       title: `${t("popularSection.products.0.title")}`,
-//       description: `${t("popularSection.products.0.description")}`,
-//       url: "https://www.setrade.com.ua/product/ameralabs-dmd-21/",
-//     },
-//     {
-//       image: image2,
-//       title: `${t("popularSection.products.1.title")}`,
-//       description: `${t("popularSection.products.1.description")}`,
-//       url: "https://www.setrade.com.ua/product/smile-line-palitra-slimpad-pro-dlia-zamishuvannia-keramiky-chorna/",
-//     },
-//   ];
-//   return (
-//     <section className="bg-white lg:pb-[90px] md:pb-[60px] pb-[40px]">
-//       <ContentContainer>
-//         <div className="flex justify-between md:flex-row flex-col md:items-center items-start gap-2">
-//           <Title>{t("popularSection.title")}</Title>
-//           <Description className="text-[#191919] md:max-w-[437px] md:text-right text-left">
-//             {t("popularSection.description")}
-//           </Description>
-//         </div>
-//         <div>
-//           <Swiper
-//             modules={[Pagination]}
-//             spaceBetween={72}
-//             slidesPerView={1}
-//             navigation={{
-//               nextEl: ".swiper-next",
-//               prevEl: ".swiper-prev",
-//               enabled: true,
-//               hideOnClick: false,
-//             }}
-//             pagination={{
-//               clickable: true,
-//               el: ".swiper-custom-pagination",
-//               bulletClass: "swiper-custom-bullet",
-//               bulletActiveClass: "swiper-custom-bullet-active",
-//             }}
-//             loop={false}
-//             speed={1000}
-//             className="popular-swiper">
-//             {popular.map((item, index) => (
-//               <SwiperSlide key={index} className="flex !important">
-//                 <div className="flex justify-between md:flex-row flex-col items-center gap-2 pt-[42px]">
-//                   <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[50%] flex justify-center items-center">
-//                     <img src={item.image} alt={item.title} />
-//                   </div>
-
-//                   <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[59.11%] flex-basis-[50%] flex flex-col justify-between gap-[32px]">
-//                     <h3 className="text-[32px] leading-[38.73px] font-normal">
-//                       {item.title}
-//                     </h3>
-//                     <Description className="max-w-[804px]">
-//                       {item.description}
-//                     </Description>
-//                     <div className="flex-grow-0 md:mb-1 mb-[56px]">
-//                       <Link
-//                         to={item.url}
-//                         target="_blank"
-//                         rel="noopener noreferrer">
-//                         <Button variant="black-red">
-//                           {t("popularSection.button")}
-//                         </Button>
-//                       </Link>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </SwiperSlide>
-//             ))}
-//           </Swiper>
-
-//           {/* Custom Pagination Container */}
-//           <div className="swiper-custom-pagination flex md:justify-center justify-start mt-[30px]"></div>
-//         </div>
-//       </ContentContainer>
-//     </section>
-//   );
-// }
-
 import ContentContainer from "../../UI/ContentContainer";
 import Description from "../../UI/Description";
 import Title from "../../UI/Title";
@@ -165,6 +68,7 @@ export default function PopularSection() {
               enabled: true,
               hideOnClick: false,
             }}
+            autoHeight
             autoplay={{
               delay: 2000, // No delay between transitions
               disableOnInteraction: false,
@@ -187,14 +91,13 @@ export default function PopularSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}>
-                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[100%] flex justify-center items-center">
+                  <div className="flex-grow-0 flex-shrink-1 lg:flex-basis-[33.89%] lg:w-[33.89%] flex-basis-[50%] w-[100%] sm:w-[50%] flex justify-center items-center">
                     <motion.img
                       src={item.image}
                       alt={item.title}
                       initial={{ scale: 0.95 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="sm:min-w-[100%] sm:min-h-[100%]"
                     />
                   </div>
 
