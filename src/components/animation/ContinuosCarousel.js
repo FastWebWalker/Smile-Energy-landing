@@ -67,7 +67,7 @@ const SwiperCarousel = () => {
             <img
               src={image}
               alt={`Partner ${index + 1}`}
-              className="w-full lg:h-[184px] opacity-100"
+              className="w-full lg:h-[184px] object-center opacity-100"
             />
           </div>
         </SwiperSlide>

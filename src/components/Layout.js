@@ -8,7 +8,7 @@ import Cookies from "./sections/cookies/Cookies";
 import CustomCursor from "./UI/CustomCursor";
 import { useMediaQuery } from "@mui/material";
 export default function Layout() {
-  const isMobile = useMediaQuery("(max-width: 767px");
+  const isMobile = useMediaQuery("(max-width: 500px");
   return (
     <>
       <I18nextProvider i18n={i18n}>
