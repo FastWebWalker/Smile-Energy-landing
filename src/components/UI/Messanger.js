@@ -29,7 +29,7 @@ const MessengerComponent = () => {
       name: "Viber",
       icon: <img src={image1} alt="phone" />,
       color: "bg-purple-600",
-      link: "viber://contact?number=+380683853535",
+      link: "viber://chat?number=+380683853535",
     },
     {
       name: "Telegram",
