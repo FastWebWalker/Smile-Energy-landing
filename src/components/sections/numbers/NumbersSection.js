@@ -100,7 +100,7 @@ export default function NumbersSection() {
           className="flex justify-center items-start md:flex-nowrap flex-wrap gap-[34px]">
           <motion.div variants={itemVariants}>
             <NumberItem
-              title="80"
+              title="20"
               description={`${t("numbersSection.experience")}`}
             />
           </motion.div>
