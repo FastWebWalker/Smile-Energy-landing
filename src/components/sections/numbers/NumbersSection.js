@@ -135,7 +135,7 @@ export default function NumbersSection() {
           <div className="flex justify-center items-center gap-[35px] w-[100%]">
             <motion.div variants={itemVariants}>
               <NumberItem
-                title="80"
+                title="20"
                 description={`${t("numbersSection.experience")}`}
                 className="flex-[0_1_50%]"
               />
